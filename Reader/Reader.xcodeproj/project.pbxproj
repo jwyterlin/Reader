@@ -16,6 +16,7 @@
 		5BAD55361B4445A1007B0CBA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BAD55351B4445A1007B0CBA /* AppDelegate.m */; };
 		5BAD55391B4445B1007B0CBA /* ArticlesListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BAD55381B4445B1007B0CBA /* ArticlesListViewController.m */; };
 		5BEC21451B44499A008D2A24 /* GenericModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BEC21441B44499A008D2A24 /* GenericModel.m */; };
+		5BEC21481B444A89008D2A24 /* ArticleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BEC21471B444A89008D2A24 /* ArticleModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,8 @@
 		5BAD55381B4445B1007B0CBA /* ArticlesListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ArticlesListViewController.m; path = ViewController/ArticlesListViewController.m; sourceTree = "<group>"; };
 		5BEC21431B44499A008D2A24 /* GenericModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GenericModel.h; path = "Model/Model Subclasses/GenericModel.h"; sourceTree = "<group>"; };
 		5BEC21441B44499A008D2A24 /* GenericModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GenericModel.m; path = "Model/Model Subclasses/GenericModel.m"; sourceTree = "<group>"; };
+		5BEC21461B444A89008D2A24 /* ArticleModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ArticleModel.h; path = "Model/Model Subclasses/ArticleModel.h"; sourceTree = "<group>"; };
+		5BEC21471B444A89008D2A24 /* ArticleModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ArticleModel.m; path = "Model/Model Subclasses/ArticleModel.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +184,8 @@
 			children = (
 				5BEC21431B44499A008D2A24 /* GenericModel.h */,
 				5BEC21441B44499A008D2A24 /* GenericModel.m */,
+				5BEC21461B444A89008D2A24 /* ArticleModel.h */,
+				5BEC21471B444A89008D2A24 /* ArticleModel.m */,
 			);
 			name = "Model Subclasses";
 			sourceTree = "<group>";
@@ -316,6 +321,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5BAD55361B4445A1007B0CBA /* AppDelegate.m in Sources */,
+				5BEC21481B444A89008D2A24 /* ArticleModel.m in Sources */,
 				5BAD55391B4445B1007B0CBA /* ArticlesListViewController.m in Sources */,
 				5BAD55031B4442FD007B0CBA /* main.m in Sources */,
 				5BEC21451B44499A008D2A24 /* GenericModel.m in Sources */,
