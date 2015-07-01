@@ -8,20 +8,41 @@
 
 #import "ArticlesListViewController.h"
 
-@interface ArticlesListViewController ()
+@interface ArticlesListViewController()<UITableViewDataSource,UITableViewDelegate>
+
+@property(nonatomic,strong) IBOutlet UITableView *tableView;
 
 @end
 
 @implementation ArticlesListViewController
 
-- (void)viewDidLoad {
+#pragma mark - View Lifecycle
+
+-(void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
 }
 
-- (void)didReceiveMemoryWarning {
+-(void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - UITableViewDataSource methods
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 1;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return [UITableViewCell new];
+}
+
+#pragma mark - UITableViewDelegate methods
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 42; // Life, universe and everything else
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 }
 
 @end
