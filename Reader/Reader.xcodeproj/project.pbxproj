@@ -17,6 +17,7 @@
 		5BAD55391B4445B1007B0CBA /* ArticlesListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BAD55381B4445B1007B0CBA /* ArticlesListViewController.m */; };
 		5BEC21451B44499A008D2A24 /* GenericModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BEC21441B44499A008D2A24 /* GenericModel.m */; };
 		5BEC21481B444A89008D2A24 /* ArticleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BEC21471B444A89008D2A24 /* ArticleModel.m */; };
+		5BEC214C1B444CD6008D2A24 /* GenericDAO.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BEC214B1B444CD6008D2A24 /* GenericDAO.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,8 @@
 		5BEC21441B44499A008D2A24 /* GenericModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GenericModel.m; path = "Model/Model Subclasses/GenericModel.m"; sourceTree = "<group>"; };
 		5BEC21461B444A89008D2A24 /* ArticleModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ArticleModel.h; path = "Model/Model Subclasses/ArticleModel.h"; sourceTree = "<group>"; };
 		5BEC21471B444A89008D2A24 /* ArticleModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ArticleModel.m; path = "Model/Model Subclasses/ArticleModel.m"; sourceTree = "<group>"; };
+		5BEC214A1B444CD6008D2A24 /* GenericDAO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GenericDAO.h; path = DAO/GenericDAO.h; sourceTree = "<group>"; };
+		5BEC214B1B444CD6008D2A24 /* GenericDAO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GenericDAO.m; path = DAO/GenericDAO.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +112,7 @@
 			children = (
 				5BAD553A1B4445B7007B0CBA /* AppDelegate */,
 				5BAD550D1B4442FD007B0CBA /* Assets.xcassets */,
+				5BEC21491B444CB6008D2A24 /* DAO */,
 				5BAD55121B4442FD007B0CBA /* Info.plist */,
 				5BAD550F1B4442FD007B0CBA /* LaunchScreen.storyboard */,
 				5BAD550A1B4442FD007B0CBA /* Main.storyboard */,
@@ -188,6 +192,15 @@
 				5BEC21471B444A89008D2A24 /* ArticleModel.m */,
 			);
 			name = "Model Subclasses";
+			sourceTree = "<group>";
+		};
+		5BEC21491B444CB6008D2A24 /* DAO */ = {
+			isa = PBXGroup;
+			children = (
+				5BEC214A1B444CD6008D2A24 /* GenericDAO.h */,
+				5BEC214B1B444CD6008D2A24 /* GenericDAO.m */,
+			);
+			name = DAO;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -322,6 +335,7 @@
 			files = (
 				5BAD55361B4445A1007B0CBA /* AppDelegate.m in Sources */,
 				5BEC21481B444A89008D2A24 /* ArticleModel.m in Sources */,
+				5BEC214C1B444CD6008D2A24 /* GenericDAO.m in Sources */,
 				5BAD55391B4445B1007B0CBA /* ArticlesListViewController.m in Sources */,
 				5BAD55031B4442FD007B0CBA /* main.m in Sources */,
 				5BEC21451B44499A008D2A24 /* GenericModel.m in Sources */,
