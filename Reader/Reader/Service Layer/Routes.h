@@ -10,4 +10,8 @@
 
 @interface Routes : NSObject
 
++(NSString *)BASE_URL;
++(NSString *)BASEAPI_URL;
++(NSString *)WS_CHALLENGE;
+
 @end

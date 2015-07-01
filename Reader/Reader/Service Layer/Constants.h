@@ -1,5 +1,5 @@
 //
-//  NetAPIClient.h
+//  Constants.h
 //  Reader
 //
 //  Created by Jhonathan Wyterlin on 01/07/15.
@@ -8,11 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-// Open Source Lib
-#import "AFHTTPSessionManager.h"
-
-@interface NetAPIClient : AFHTTPSessionManager
-
-+(instancetype)sharedClient;
+@interface Constants : NSObject
 
 @end

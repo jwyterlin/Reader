@@ -10,4 +10,16 @@
 
 @implementation Routes
 
++(NSString *)BASE_URL {
+    return @"http://www.ckl.io/";
+}
+
++(NSString *)BASEAPI_URL {
+    return [NSString stringWithFormat:@"%@",[Routes BASE_URL]];
+}
+
++(NSString *)WS_CHALLENGE {
+    return @"challenge/";
+}
+
 @end
