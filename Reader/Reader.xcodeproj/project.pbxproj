@@ -15,6 +15,7 @@
 		5BAD55271B4442FD007B0CBA /* ReaderUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BAD55261B4442FD007B0CBA /* ReaderUITests.m */; };
 		5BAD55361B4445A1007B0CBA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BAD55351B4445A1007B0CBA /* AppDelegate.m */; };
 		5BAD55391B4445B1007B0CBA /* ArticlesListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BAD55381B4445B1007B0CBA /* ArticlesListViewController.m */; };
+		5BEC21451B44499A008D2A24 /* GenericModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BEC21441B44499A008D2A24 /* GenericModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,8 @@
 		5BAD55351B4445A1007B0CBA /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = AppDelegate/AppDelegate.m; sourceTree = "<group>"; };
 		5BAD55371B4445B1007B0CBA /* ArticlesListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ArticlesListViewController.h; path = ViewController/ArticlesListViewController.h; sourceTree = "<group>"; };
 		5BAD55381B4445B1007B0CBA /* ArticlesListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ArticlesListViewController.m; path = ViewController/ArticlesListViewController.m; sourceTree = "<group>"; };
+		5BEC21431B44499A008D2A24 /* GenericModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GenericModel.h; path = "Model/Model Subclasses/GenericModel.h"; sourceTree = "<group>"; };
+		5BEC21441B44499A008D2A24 /* GenericModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GenericModel.m; path = "Model/Model Subclasses/GenericModel.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +109,7 @@
 				5BAD55121B4442FD007B0CBA /* Info.plist */,
 				5BAD550F1B4442FD007B0CBA /* LaunchScreen.storyboard */,
 				5BAD550A1B4442FD007B0CBA /* Main.storyboard */,
+				5BEC21401B44494A008D2A24 /* Model */,
 				5BAD55011B4442FD007B0CBA /* Supporting Files */,
 				5BAD553B1B4445C1007B0CBA /* ViewController */,
 			);
@@ -154,6 +158,31 @@
 				5BAD55381B4445B1007B0CBA /* ArticlesListViewController.m */,
 			);
 			name = ViewController;
+			sourceTree = "<group>";
+		};
+		5BEC21401B44494A008D2A24 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5BEC21411B444963008D2A24 /* Model Classes */,
+				5BEC21421B44496A008D2A24 /* Model Subclasses */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		5BEC21411B444963008D2A24 /* Model Classes */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Model Classes";
+			sourceTree = "<group>";
+		};
+		5BEC21421B44496A008D2A24 /* Model Subclasses */ = {
+			isa = PBXGroup;
+			children = (
+				5BEC21431B44499A008D2A24 /* GenericModel.h */,
+				5BEC21441B44499A008D2A24 /* GenericModel.m */,
+			);
+			name = "Model Subclasses";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -289,6 +318,7 @@
 				5BAD55361B4445A1007B0CBA /* AppDelegate.m in Sources */,
 				5BAD55391B4445B1007B0CBA /* ArticlesListViewController.m in Sources */,
 				5BAD55031B4442FD007B0CBA /* main.m in Sources */,
+				5BEC21451B44499A008D2A24 /* GenericModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
