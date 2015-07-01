@@ -18,6 +18,7 @@
 		5BEC21451B44499A008D2A24 /* GenericModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BEC21441B44499A008D2A24 /* GenericModel.m */; };
 		5BEC21481B444A89008D2A24 /* ArticleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BEC21471B444A89008D2A24 /* ArticleModel.m */; };
 		5BEC214C1B444CD6008D2A24 /* GenericDAO.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BEC214B1B444CD6008D2A24 /* GenericDAO.m */; };
+		BD5EA9836665D41875115F53 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E446FF49CF3028491FE2E694 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2907D289D73110EAD15740A3 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		5BAD54FE1B4442FD007B0CBA /* Reader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Reader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BAD55021B4442FD007B0CBA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		5BAD550B1B4442FD007B0CBA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -60,6 +62,8 @@
 		5BEC21471B444A89008D2A24 /* ArticleModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ArticleModel.m; path = "Model/Model Subclasses/ArticleModel.m"; sourceTree = "<group>"; };
 		5BEC214A1B444CD6008D2A24 /* GenericDAO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GenericDAO.h; path = DAO/GenericDAO.h; sourceTree = "<group>"; };
 		5BEC214B1B444CD6008D2A24 /* GenericDAO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GenericDAO.m; path = DAO/GenericDAO.m; sourceTree = "<group>"; };
+		C4C8C4A1330826E8FC9F2EA6 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		E446FF49CF3028491FE2E694 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD5EA9836665D41875115F53 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,6 +92,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		126096964B4B5CDC8195E9AF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C4C8C4A1330826E8FC9F2EA6 /* Pods.debug.xcconfig */,
+				2907D289D73110EAD15740A3 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		196342DFB59F5A515EEB2BB7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E446FF49CF3028491FE2E694 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		5BAD54F51B4442FD007B0CBA = {
 			isa = PBXGroup;
 			children = (
@@ -94,6 +116,8 @@
 				5BAD551A1B4442FD007B0CBA /* ReaderTests */,
 				5BAD55251B4442FD007B0CBA /* ReaderUITests */,
 				5BAD54FF1B4442FD007B0CBA /* Products */,
+				126096964B4B5CDC8195E9AF /* Pods */,
+				196342DFB59F5A515EEB2BB7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -210,9 +234,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5BAD552B1B4442FD007B0CBA /* Build configuration list for PBXNativeTarget "Reader" */;
 			buildPhases = (
+				A9F0108F6D8E60922EA5D069 /* Check Pods Manifest.lock */,
 				5BAD54FA1B4442FD007B0CBA /* Sources */,
 				5BAD54FB1B4442FD007B0CBA /* Frameworks */,
 				5BAD54FC1B4442FD007B0CBA /* Resources */,
+				3C5C556902E46EA1520D84DC /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -327,6 +353,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3C5C556902E46EA1520D84DC /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A9F0108F6D8E60922EA5D069 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		5BAD54FA1B4442FD007B0CBA /* Sources */ = {
@@ -477,6 +536,7 @@
 		};
 		5BAD552C1B4442FD007B0CBA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C4C8C4A1330826E8FC9F2EA6 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Reader/Info.plist;
@@ -488,6 +548,7 @@
 		};
 		5BAD552D1B4442FD007B0CBA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2907D289D73110EAD15740A3 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Reader/Info.plist;
