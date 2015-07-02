@@ -50,9 +50,17 @@
                 atIndexPath:(NSIndexPath *)indexPath
                     article:(ArticleModel *)article {
     
-    cell.title.text = article.title;
-    cell.date.text = [DateHelper dateFormattedBrazilStandard:article.date];
-    cell.author.text = article.author;
+    cell.title.text = [NSString stringWithFormat:@"Title: %@", article.title];
+    cell.author.text = [NSString stringWithFormat:@"Author: %@", article.author];
+    
+    NSString *dateString = [DateHelper dateFormattedBrazilStandard:article.date];
+    
+    cell.date.text = [NSString stringWithFormat:@"Date: %@", dateString];
+    
+    cell.image.layer.borderColor = [UIColor colorWithRed:230.0/256.0
+                                                   green:230.0/256.0
+                                                    blue:230.0/256.0 alpha:1.0].CGColor;
+    cell.image.layer.borderWidth = 1.0;
     
     [self downloadImageWithArticleCell:cell tableView:tableView indexPath:indexPath article:article];
     

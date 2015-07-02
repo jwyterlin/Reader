@@ -35,6 +35,8 @@
     
     [self setupTableView];
     
+    [self downloadList];
+    
 }
 
 -(void)didReceiveMemoryWarning {
