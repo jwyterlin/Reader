@@ -22,6 +22,10 @@ extern NSString *const kTimeZoneGreenwich;
 
 // Cell Nib Names
 extern NSString *const kNibNameArticleCell;
+extern NSString *const kNibNameImageCell;
+extern NSString *const kNibNameTitleCell;
+extern NSString *const kNibNameContentCell;
+extern NSString *const kNibNameFooterCell;
 
 extern NSString *const kCachedImages;
 extern NSString *const kDateLastEmptyCache;

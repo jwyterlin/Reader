@@ -12,6 +12,7 @@
 
 +(NSDate *)dateFromString:(NSString *)dateString;
 +(NSString *)dateFormattedBrazilStandard:(NSDate *)date;
++(NSString *)dateFormattedMonthDayYear:(NSDate *)date;
 +(NSString *)dateFormattedISO8601Standard:(NSDate *)date;
 +(NSString *)dateTimeFormattedISO8601Standard:(NSDate *)date;
 -(NSString *)getCurrentDate;

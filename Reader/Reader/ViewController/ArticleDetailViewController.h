@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+// Model
+#import "ArticleModel.h"
+
 @interface ArticleDetailViewController : UIViewController
+
+@property(nonatomic,strong) ArticleModel *article;
 
 @end

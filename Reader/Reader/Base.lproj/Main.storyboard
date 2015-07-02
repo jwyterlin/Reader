@@ -23,7 +23,7 @@
         <!--Articles List View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ArticlesListViewController" sceneMemberID="viewController">
+                <viewController restorationIdentifier="ArticlesListViewController" storyboardIdentifier="ArticlesListViewController" id="BYZ-38-t0r" customClass="ArticlesListViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -59,6 +59,53 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="565" y="477"/>
+        </scene>
+        <!--Article Detail View Controller-->
+        <scene sceneID="ruy-Y7-dBO">
+            <objects>
+                <viewController restorationIdentifier="ArticleDetailViewController" storyboardIdentifier="ArticleDetailViewController" id="Fw6-At-CI9" customClass="ArticleDetailViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="f0k-jV-nFd"/>
+                        <viewControllerLayoutGuide type="bottom" id="jg8-ur-eeH"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Eg4-ZS-t7H">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IRg-kN-3Tm">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="240"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="240" id="Qnt-ry-WxP"/>
+                                </constraints>
+                            </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Skn-yc-rws">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Fw6-At-CI9" id="Wkj-ju-oNA"/>
+                                    <outlet property="delegate" destination="Fw6-At-CI9" id="eNC-Mp-duC"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Skn-yc-rws" firstAttribute="top" secondItem="Eg4-ZS-t7H" secondAttribute="top" id="5uG-Lo-1Ke"/>
+                            <constraint firstItem="IRg-kN-3Tm" firstAttribute="leading" secondItem="Eg4-ZS-t7H" secondAttribute="leading" id="D8S-hQ-FQp"/>
+                            <constraint firstItem="IRg-kN-3Tm" firstAttribute="top" secondItem="Eg4-ZS-t7H" secondAttribute="top" id="HuL-h1-syc"/>
+                            <constraint firstAttribute="trailing" secondItem="Skn-yc-rws" secondAttribute="trailing" id="Low-Kh-5Aq"/>
+                            <constraint firstAttribute="trailing" secondItem="IRg-kN-3Tm" secondAttribute="trailing" id="kNH-O6-Et9"/>
+                            <constraint firstItem="jg8-ur-eeH" firstAttribute="top" secondItem="Skn-yc-rws" secondAttribute="bottom" id="lnX-P8-Kpz"/>
+                            <constraint firstItem="Skn-yc-rws" firstAttribute="leading" secondItem="Eg4-ZS-t7H" secondAttribute="leading" id="w6i-D8-LFW"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="articleImage" destination="IRg-kN-3Tm" id="18H-rz-PsN"/>
+                        <outlet property="tableView" destination="Skn-yc-rws" id="oiq-YB-ndI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lmT-y3-yGZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1226" y="477"/>
         </scene>
     </scenes>
 </document>

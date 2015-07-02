@@ -54,7 +54,7 @@
     cell.title.text = [NSString stringWithFormat:@"Title: %@", article.title];
     cell.author.text = [NSString stringWithFormat:@"Author: %@", article.author];
     
-    NSString *dateString = [DateHelper dateFormattedBrazilStandard:article.date];
+    NSString *dateString = [DateHelper dateFormattedMonthDayYear:article.date];
     
     cell.date.text = [NSString stringWithFormat:@"Date: %@", dateString];
     
@@ -64,7 +64,6 @@
     cell.image.layer.borderWidth = 1.0;
     
     [self downloadImageWithArticleCell:cell tableView:tableView indexPath:indexPath article:article];
-    
     
 }
 

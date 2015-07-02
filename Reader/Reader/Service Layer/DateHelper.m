@@ -60,6 +60,23 @@
     
 }
 
++(NSString *)dateFormattedMonthDayYear:(NSDate *)date {
+    
+    NSDateFormatter *dateFormatter = [NSDateFormatter new];
+    NSTimeZone *tz = [NSTimeZone timeZoneWithName:kTimeZoneGreenwich];
+    [dateFormatter setDateFormat:kDateFormatMonthDayYear];
+    [dateFormatter setTimeZone:tz];
+    
+    NSString *dateFormatted = [dateFormatter stringFromDate:date];
+    
+    if ( dateFormatted == nil ) {
+        return @"0000-00-00";
+    } else {
+        return dateFormatted;
+    }
+    
+}
+
 +(NSString *)dateFormattedISO8601Standard:(NSDate *)date {
     
     NSDateFormatter *dateFormatter = [NSDateFormatter new];

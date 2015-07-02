@@ -22,6 +22,10 @@ NSString *const kTimeZoneGreenwich = @"Greenwich";
 
 // Cell Nib Names
 NSString *const kNibNameArticleCell = @"ArticleCell";
+NSString *const kNibNameImageCell = @"ImageCell";
+NSString *const kNibNameTitleCell = @"TitleCell";
+NSString *const kNibNameContentCell = @"ContentCell";
+NSString *const kNibNameFooterCell = @"FooterCell";
 
 NSString *const kCachedImages = @"cachedImages";
 NSString *const kDateLastEmptyCache = @"dateLastEmptyCache";
