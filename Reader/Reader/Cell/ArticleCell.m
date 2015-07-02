@@ -19,6 +19,7 @@
 @property(nonatomic,strong) IBOutlet UIImageView *image;
 @property(nonatomic,strong) UIActivityIndicatorView *loading;
 @property(nonatomic) BOOL isDownloading;
+@property(nonatomic,strong) UILabel *noPhoto;
 
 @end
 
@@ -78,11 +79,11 @@
         
         if ( cell ) {
             
+            if ( cell.loading.isAnimating )
+                [cell.loading stopAnimating];
+            
             if ( cell.tag == indexPath.row ) {
-                
-                if ( cell.loading.isAnimating )
-                    [cell.loading stopAnimating];
-                
+
                 cell.image.image = [[UIImage alloc] initWithData:article.image];
                 [cell setNeedsDisplay];
                 
@@ -107,12 +108,16 @@
             
             cell.isDownloading = YES;
             
+            // Download image
             [[ImageDAO new] defineImageById:[article.identifier stringValue]
                                  folderName:kFolderNameArticle
                                    filename:article.imageUrl
                                  completion:^(UIImage *image) {
                                      
                                      cell.isDownloading = NO;
+                                     
+                                     if ( ! image )
+                                         image = [UIImage imageNamed:@""];
                                      
                                      NSData *imageDownloaded = UIImageJPEGRepresentation( image, 1.0 );
                                      
@@ -135,10 +140,17 @@
                                              
                                          }
                                          
+                                     } else {
+                                         
+                                         [cell.loading stopAnimating];
+                                         
+                                         if ( ! [cell.noPhoto isDescendantOfView:cell.image] )
+                                             [cell.image addSubview:cell.noPhoto];
+                                         
                                      }
                                      
                                      
-                                 }];
+            }];
             
         }
         
@@ -157,6 +169,25 @@
     }
     
     return _loading;
+    
+}
+
+-(UILabel *)noPhoto {
+    
+    if ( ! _noPhoto ) {
+        
+        int height = 21;
+        int y = ( self.image.frame.size.height / 2 ) - ( height / 2 );
+        
+        _noPhoto = [[UILabel alloc] initWithFrame:CGRectMake( 0, y, self.image.frame.size.width, height )];
+        _noPhoto.numberOfLines = 0;
+        _noPhoto.text = @"No Image";
+        _noPhoto.textAlignment = NSTextAlignmentCenter;
+        _noPhoto.textColor = [UIColor colorWithRed:210.0/256.0 green:210.0/256.0 blue:210.0/256.0 alpha:1.0];
+        
+    }
+    
+    return _noPhoto;
     
 }
 
