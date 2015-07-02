@@ -10,4 +10,7 @@
 
 @interface GenericModel : NSObject
 
+-(NSArray *)setupListWithJson:(NSArray *)list;
+-(id)setupWithJson:(NSDictionary *)json;
+
 @end

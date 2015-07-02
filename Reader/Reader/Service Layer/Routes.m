@@ -18,7 +18,7 @@
     return [NSString stringWithFormat:@"%@",[Routes BASE_URL]];
 }
 
-+(NSString *)WS_CHALLENGE {
++(NSString *)WS_ARTICLE_LIST {
     return @"challenge/";
 }
 

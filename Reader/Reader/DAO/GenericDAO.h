@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
+#import "Connection.h"
+#import "Routes.h"
+
 @interface GenericDAO : NSObject
 
 @end

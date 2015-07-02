@@ -21,7 +21,6 @@
 -(void)connectWithMethod:(RequestMethod)method
                      url:(NSString *)url
               parameters:(NSDictionary *)parameters
-             credentials:(BOOL)hasCredentials
                  success:(void (^)(id responseData))success
                  failure:(void (^)(BOOL hasNoConnection, NSError *error))failure {
     

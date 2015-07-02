@@ -12,6 +12,7 @@
 
 +(NSString *)BASE_URL;
 +(NSString *)BASEAPI_URL;
-+(NSString *)WS_CHALLENGE;
+
++(NSString *)WS_ARTICLE_LIST;
 
 @end

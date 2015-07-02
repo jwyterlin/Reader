@@ -23,6 +23,7 @@
 		7BEE61C71B44A371001DBB28 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BEE61C61B44A371001DBB28 /* Reachability.m */; };
 		7BEE61CA1B44A3DE001DBB28 /* NetAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BEE61C91B44A3DE001DBB28 /* NetAPIClient.m */; };
 		7BEE61CD1B44A816001DBB28 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BEE61CC1B44A816001DBB28 /* Constants.m */; };
+		7BEE61D01B44B2B0001DBB28 /* ArticleDAO.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BEE61CF1B44B2B0001DBB28 /* ArticleDAO.m */; };
 		BD5EA9836665D41875115F53 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E446FF49CF3028491FE2E694 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -77,6 +78,8 @@
 		7BEE61C91B44A3DE001DBB28 /* NetAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NetAPIClient.m; path = "Service Layer/NetAPIClient.m"; sourceTree = "<group>"; };
 		7BEE61CB1B44A816001DBB28 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Constants.h; path = "Service Layer/Constants.h"; sourceTree = "<group>"; };
 		7BEE61CC1B44A816001DBB28 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Constants.m; path = "Service Layer/Constants.m"; sourceTree = "<group>"; };
+		7BEE61CE1B44B2B0001DBB28 /* ArticleDAO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ArticleDAO.h; path = DAO/ArticleDAO.h; sourceTree = "<group>"; };
+		7BEE61CF1B44B2B0001DBB28 /* ArticleDAO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ArticleDAO.m; path = DAO/ArticleDAO.m; sourceTree = "<group>"; };
 		C4C8C4A1330826E8FC9F2EA6 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		E446FF49CF3028491FE2E694 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -237,6 +240,8 @@
 		5BEC21491B444CB6008D2A24 /* DAO */ = {
 			isa = PBXGroup;
 			children = (
+				7BEE61CE1B44B2B0001DBB28 /* ArticleDAO.h */,
+				7BEE61CF1B44B2B0001DBB28 /* ArticleDAO.m */,
 				5BEC214A1B444CD6008D2A24 /* GenericDAO.h */,
 				5BEC214B1B444CD6008D2A24 /* GenericDAO.m */,
 			);
@@ -436,6 +441,7 @@
 				5BAD55031B4442FD007B0CBA /* main.m in Sources */,
 				7BEE61C71B44A371001DBB28 /* Reachability.m in Sources */,
 				5BEC21451B44499A008D2A24 /* GenericModel.m in Sources */,
+				7BEE61D01B44B2B0001DBB28 /* ArticleDAO.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
