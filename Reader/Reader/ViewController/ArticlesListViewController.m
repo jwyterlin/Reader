@@ -16,15 +16,20 @@
 
 // Service Layer
 #import "Constants.h"
+#import "DeviceInfo.h"
 #import "UITableView+Helper.h"
 
 // ViewController
 #import "ArticleDetailViewController.h"
 
-@interface ArticlesListViewController()<UITableViewDataSource,UITableViewDelegate>
+@interface ArticlesListViewController()<UITableViewDataSource,UITableViewDelegate,UISearchBarDelegate,UISearchDisplayDelegate>
 
 @property(nonatomic,strong) IBOutlet UITableView *tableView;
 @property(nonatomic,strong) NSArray *articleList;
+@property(nonatomic,strong) NSMutableArray *filtered;
+@property(nonatomic,strong) NSArray *aux;
+@property(nonatomic) BOOL isChangedNoResults;
+@property(nonatomic,strong) UIView *bgSearchBarView;
 
 @end
 
@@ -39,6 +44,8 @@
     [self setupTableView];
     
     [self downloadList];
+    
+    [self prepareForFilter];
     
 }
 
@@ -133,6 +140,59 @@
     [self.tableView removeSeparator];
 
     [self.tableView registerNibForCellReuseIdentifier:kNibNameArticleCell];
+    
+    self.tableView.tableHeaderView = self.searchDisplayController.searchBar;
+    
+    [self hideSearchBarUntilScroll];
+    
+}
+
+-(void)hideSearchBarUntilScroll {
+    
+    // Hide the search bar until user scrolls up
+    CGRect newBounds = self.tableView.bounds;
+    newBounds.origin.y = newBounds.origin.y + self.searchDisplayController.searchBar.bounds.size.height;
+    self.tableView.bounds = newBounds;
+    
+}
+
+-(void)prepareForFilter {
+    
+    self.aux = [self.articleList copy];
+    
+    // Initialize the filtered with a capacity equal to the list's capacity
+    self.filtered = [NSMutableArray arrayWithCapacity:self.articleList.count];
+    
+}
+
+-(void)showBgSearchBarView {
+    
+    if ( ! [self.bgSearchBarView isDescendantOfView:self.view] )
+        [self.view addSubview:self.bgSearchBarView];
+    
+    self.bgSearchBarView.hidden = NO;
+    [self.view bringSubviewToFront:self.bgSearchBarView];
+    
+}
+
+-(void)dismissBgSearchBarView {
+    
+    if ( [self.bgSearchBarView isDescendantOfView:self.view] )
+        self.bgSearchBarView.hidden = YES;
+    
+}
+
+#pragma mark - Creating components
+
+-(UIView *)bgSearchBarView {
+    
+    if ( ! _bgSearchBarView ) {
+        
+        _bgSearchBarView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [DeviceInfo width], 20 )];
+        
+    }
+    
+    return _bgSearchBarView;
     
 }
 
