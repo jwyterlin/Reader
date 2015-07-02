@@ -8,9 +8,13 @@
 
 #import "ArticlesListViewController.h"
 
+// DAO
+#import "ArticleDAO.h"
+
 @interface ArticlesListViewController()<UITableViewDataSource,UITableViewDelegate>
 
 @property(nonatomic,strong) IBOutlet UITableView *tableView;
+@property(nonatomic,strong) NSArray *articleList;
 
 @end
 
@@ -29,7 +33,7 @@
 #pragma mark - UITableViewDataSource methods
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 1;
+    return self.articleList.count;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -43,6 +47,30 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+}
+
+#pragma mark - Private methods
+
+-(void)downloadList {
+    
+    [[ArticleDAO new] articleListWithSuccess:^(NSArray *articleList) {
+        
+        self.articleList = articleList;
+        
+        [self.tableView reloadData];
+        
+    } failure:^(BOOL hasNoConnection, NSError *error) {
+        
+        if ( hasNoConnection ) {
+            return;
+        }
+        
+        if ( error ) {
+            return;
+        }
+        
+    }];
+    
 }
 
 @end
