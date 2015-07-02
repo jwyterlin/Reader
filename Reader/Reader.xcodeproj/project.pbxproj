@@ -26,6 +26,7 @@
 		7B2F91811B44FEC2009D56FA /* FooterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B2F917F1B44FEC2009D56FA /* FooterCell.xib */; };
 		7B2F91851B450E56009D56FA /* JWLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B2F91841B450E56009D56FA /* JWLabel.m */; };
 		7B2F91881B450ED5009D56FA /* CellHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B2F91871B450ED5009D56FA /* CellHelper.m */; };
+		7B2F918B1B4511DF009D56FA /* DeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B2F918A1B4511DF009D56FA /* DeviceInfo.m */; };
 		7BEE61C11B44A2A4001DBB28 /* Connection.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BEE61C01B44A2A4001DBB28 /* Connection.m */; };
 		7BEE61C41B44A2E2001DBB28 /* Routes.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BEE61C31B44A2E2001DBB28 /* Routes.m */; };
 		7BEE61C71B44A371001DBB28 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BEE61C61B44A371001DBB28 /* Reachability.m */; };
@@ -100,6 +101,8 @@
 		7B2F91841B450E56009D56FA /* JWLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JWLabel.m; path = "Service Layer/JWLabel.m"; sourceTree = "<group>"; };
 		7B2F91861B450ED5009D56FA /* CellHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CellHelper.h; path = "Service Layer/CellHelper.h"; sourceTree = "<group>"; };
 		7B2F91871B450ED5009D56FA /* CellHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CellHelper.m; path = "Service Layer/CellHelper.m"; sourceTree = "<group>"; };
+		7B2F91891B4511DF009D56FA /* DeviceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DeviceInfo.h; path = "Service Layer/DeviceInfo.h"; sourceTree = "<group>"; };
+		7B2F918A1B4511DF009D56FA /* DeviceInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DeviceInfo.m; path = "Service Layer/DeviceInfo.m"; sourceTree = "<group>"; };
 		7BEE61BF1B44A2A4001DBB28 /* Connection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Connection.h; path = "Service Layer/Connection.h"; sourceTree = "<group>"; };
 		7BEE61C01B44A2A4001DBB28 /* Connection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Connection.m; path = "Service Layer/Connection.m"; sourceTree = "<group>"; };
 		7BEE61C21B44A2E2001DBB28 /* Routes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Routes.h; path = "Service Layer/Routes.h"; sourceTree = "<group>"; };
@@ -357,6 +360,8 @@
 				7BEE61CC1B44A816001DBB28 /* Constants.m */,
 				7BEE61D41B44BDCA001DBB28 /* DateHelper.h */,
 				7BEE61D51B44BDCA001DBB28 /* DateHelper.m */,
+				7B2F91891B4511DF009D56FA /* DeviceInfo.h */,
+				7B2F918A1B4511DF009D56FA /* DeviceInfo.m */,
 				7B2F91831B450E56009D56FA /* JWLabel.h */,
 				7B2F91841B450E56009D56FA /* JWLabel.m */,
 				7BEE61E51B44D1A1001DBB28 /* JWMacros.h */,
@@ -378,8 +383,8 @@
 		7BEE61D71B44C1D4001DBB28 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				7B2F91821B450108009D56FA /* ArticleDetail */,
 				7BEE61D81B44C1E1001DBB28 /* ArticleCell */,
+				7B2F91821B450108009D56FA /* ArticleDetail */,
 				7BEE61E11B44C370001DBB28 /* GenericCell */,
 			);
 			name = Cell;
@@ -590,6 +595,7 @@
 				7B2F91881B450ED5009D56FA /* CellHelper.m in Sources */,
 				7BEE61DC1B44C234001DBB28 /* ArticleCell.m in Sources */,
 				7BEE61CA1B44A3DE001DBB28 /* NetAPIClient.m in Sources */,
+				7B2F918B1B4511DF009D56FA /* DeviceInfo.m in Sources */,
 				7BEE61C11B44A2A4001DBB28 /* Connection.m in Sources */,
 				7B2F91801B44FEC2009D56FA /* FooterCell.m in Sources */,
 				7BEE61E01B44C36B001DBB28 /* GenericCell.m in Sources */,

@@ -13,28 +13,31 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="111"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ax-3q-lxW">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author:" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="304" translatesAutoresizingMaskIntoConstraints="NO" id="0ax-3q-lxW" customClass="JWLabel">
                         <rect key="frame" x="8" y="16" width="304" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="4kJ-ub-Nxe"/>
+                            <constraint firstAttribute="width" priority="750" constant="304" id="LNW-ze-foh"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Site:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pli-SM-dRf">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Site:" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pli-SM-dRf" customClass="JWLabel">
                         <rect key="frame" x="8" y="45" width="304" height="21"/>
                         <constraints>
+                            <constraint firstAttribute="width" priority="750" constant="304" id="dCw-YM-5Cj"/>
                             <constraint firstAttribute="height" constant="21" id="iEP-dA-ftm"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wPK-zd-5rf">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date:" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wPK-zd-5rf" customClass="JWLabel">
                         <rect key="frame" x="8" y="74" width="304" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="PRi-6P-Aef"/>
+                            <constraint firstAttribute="width" priority="750" constant="304" id="Zmk-D7-yvw"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -43,20 +46,36 @@
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="0ax-3q-lxW" secondAttribute="trailing" constant="8" id="3Z9-7V-0ae"/>
+                    <constraint firstItem="wPK-zd-5rf" firstAttribute="top" secondItem="Pli-SM-dRf" secondAttribute="bottom" constant="8" id="4Mc-I0-pYz"/>
                     <constraint firstItem="wPK-zd-5rf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="BQQ-g2-OeR"/>
                     <constraint firstItem="0ax-3q-lxW" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" constant="-29" id="MMY-op-dnp"/>
                     <constraint firstAttribute="trailing" secondItem="wPK-zd-5rf" secondAttribute="trailing" constant="8" id="RFb-XV-Nwa"/>
+                    <constraint firstItem="0ax-3q-lxW" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="S54-DX-7nh"/>
                     <constraint firstItem="Pli-SM-dRf" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="TDz-dg-J7R"/>
                     <constraint firstAttribute="trailing" secondItem="Pli-SM-dRf" secondAttribute="trailing" constant="8" id="VqH-G7-izb"/>
                     <constraint firstItem="wPK-zd-5rf" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" constant="29" id="s3R-VY-EqQ"/>
                     <constraint firstItem="0ax-3q-lxW" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="s8n-kG-wbM"/>
                     <constraint firstItem="Pli-SM-dRf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="tka-fH-VM9"/>
+                    <constraint firstItem="Pli-SM-dRf" firstAttribute="top" secondItem="0ax-3q-lxW" secondAttribute="bottom" constant="8" id="wPs-2c-ooZ"/>
                 </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="3Z9-7V-0ae"/>
+                        <exclude reference="MMY-op-dnp"/>
+                        <exclude reference="TDz-dg-J7R"/>
+                        <exclude reference="VqH-G7-izb"/>
+                        <exclude reference="RFb-XV-Nwa"/>
+                        <exclude reference="s3R-VY-EqQ"/>
+                    </mask>
+                </variation>
             </tableViewCellContentView>
             <connections>
-                <outlet property="author" destination="0ax-3q-lxW" id="zGZ-2B-3Sd"/>
-                <outlet property="date" destination="wPK-zd-5rf" id="BKV-O6-mWc"/>
-                <outlet property="site" destination="Pli-SM-dRf" id="FWb-WE-Q1q"/>
+                <outlet property="author" destination="0ax-3q-lxW" id="B6f-iR-hkf"/>
+                <outlet property="authorWidth" destination="LNW-ze-foh" id="wzs-4P-f6v"/>
+                <outlet property="date" destination="wPK-zd-5rf" id="Pb7-AJ-ZRW"/>
+                <outlet property="dateWidth" destination="Zmk-D7-yvw" id="jcg-dU-Dsl"/>
+                <outlet property="site" destination="Pli-SM-dRf" id="ATe-ET-a0w"/>
+                <outlet property="siteWidth" destination="dCw-YM-5Cj" id="erO-kd-vcb"/>
             </connections>
             <point key="canvasLocation" x="167" y="279"/>
         </tableViewCell>

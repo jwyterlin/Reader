@@ -8,9 +8,15 @@
 
 #import "TitleCell.h"
 
+// Service Layer
+#import "DeviceInfo.h"
+#import "JWLabel.h"
+
 @interface TitleCell()
 
-@property(nonatomic,strong) IBOutlet UILabel *title;
+@property(nonatomic,strong) IBOutlet JWLabel *title;
+
+@property(nonatomic,strong) IBOutlet NSLayoutConstraint *titleWidth;
 
 @end
 
@@ -43,6 +49,9 @@
                     title:(NSString *)title {
     
     cell.title.text = title;
+    
+    cell.titleWidth.constant = [DeviceInfo width]-16;
+    [cell.title setNeedsUpdateConstraints];
     
 }
 

@@ -15,10 +15,12 @@
 #import "FooterCell.h"
 
 // Service Layer
+#import "CellHelper.h"
 #import "Constants.h"
+#import "JWMacros.h"
 #import "UITableView+Helper.h"
 
-@interface ArticleDetailViewController()<UITableViewDataSource,UITableViewDelegate>
+@interface ArticleDetailViewController()<UITableViewDataSource,UITableViewDelegate,CellHelperDelegate>
 
 @property(nonatomic,strong) IBOutlet UITableView *tableView;
 @property(nonatomic,strong) IBOutlet UIImageView *articleImage;
@@ -79,21 +81,33 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
+    NSString *identifier;
+    
     if ( indexPath.row == self.hasImage?0:-1 ) {
         // Image
         return 240;
     } else if ( indexPath.row == self.hasImage?1:0 ) {
         // Title
-        return 42;
+        identifier = kNibNameTitleCell;
     } else if ( indexPath.row == self.hasImage?2:1 ) {
         // Content
-        return 42;
+        identifier = kNibNameContentCell;
     } else if ( indexPath.row == self.hasImage?3:2 ) {
         // Site, Author and Date
-        return 42;
+        identifier = kNibNameFooterCell;
     }
     
-    return 110;
+    CGFloat height = [[CellHelper new] heightForCellAtIndexPath:indexPath
+                                                      tableView:tableView
+                                                 cellIdentifier:identifier
+                                                       delegate:self];
+    
+    JW_log( @"height: %.0f", height );
+    
+    if ( height == 0 )
+        height = 42;
+
+    return height;
     
 }
 
@@ -114,6 +128,29 @@
 
         }
 
+    }
+
+}
+
+#pragma mark - CellHelperDelegate methods
+
+-(void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
+    
+    if ( indexPath.row == self.hasImage?0:-1 ) {
+        // Do nothing
+        return;
+    } else if ( indexPath.row == self.hasImage?1:0 ) {
+        // Title
+        TitleCell *customCell = (TitleCell *)cell;
+        [[TitleCell new] configureTitleCell:customCell tableView:self.tableView atIndexPath:indexPath title:self.article.title];
+    } else if ( indexPath.row == self.hasImage?2:1 ) {
+        // Content
+        ContentCell *customCell = (ContentCell *)cell;
+        [[ContentCell new] configureContentCell:customCell tableView:self.tableView atIndexPath:indexPath content:self.article.content];
+    } else if ( indexPath.row == self.hasImage?3:2 ) {
+        // Site, Author and Date
+        FooterCell *customCell = (FooterCell *)cell;
+        [[FooterCell new] configureFooterCell:customCell tableView:self.tableView atIndexPath:indexPath article:self.article];
     }
 
 }

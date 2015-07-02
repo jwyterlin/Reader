@@ -13,10 +13,10 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hDo-tz-34z">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hDo-tz-34z" customClass="JWLabel">
                         <rect key="frame" x="8" y="11" width="304" height="21"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="304" id="Ktc-W6-CYe"/>
+                            <constraint firstAttribute="width" priority="750" constant="304" id="Ktc-W6-CYe"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="21"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -30,7 +30,8 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="title" destination="hDo-tz-34z" id="5Ex-2j-Fov"/>
+                <outlet property="title" destination="hDo-tz-34z" id="p3U-VP-lc6"/>
+                <outlet property="titleWidth" destination="Ktc-W6-CYe" id="3IR-6b-0y8"/>
             </connections>
         </tableViewCell>
     </objects>

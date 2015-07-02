@@ -7,7 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface DeviceInfo : NSObject
+
++(CGFloat)height;
++(CGFloat)width;
 
 @end

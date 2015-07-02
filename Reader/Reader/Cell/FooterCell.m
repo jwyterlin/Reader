@@ -8,11 +8,19 @@
 
 #import "FooterCell.h"
 
+// Service Layer
+#import "DeviceInfo.h"
+#import "JWLabel.h"
+
 @interface FooterCell()
 
-@property(nonatomic,strong) IBOutlet UILabel *site;
-@property(nonatomic,strong) IBOutlet UILabel *author;
-@property(nonatomic,strong) IBOutlet UILabel *date;
+@property(nonatomic,strong) IBOutlet JWLabel *site;
+@property(nonatomic,strong) IBOutlet JWLabel *author;
+@property(nonatomic,strong) IBOutlet JWLabel *date;
+
+@property(nonatomic,strong) IBOutlet NSLayoutConstraint *siteWidth;
+@property(nonatomic,strong) IBOutlet NSLayoutConstraint *authorWidth;
+@property(nonatomic,strong) IBOutlet NSLayoutConstraint *dateWidth;
 
 @end
 
@@ -52,6 +60,13 @@
     
     cell.date.text = [NSString stringWithFormat:@"Date: %@", dateString];
     
+    cell.siteWidth.constant = [DeviceInfo width]-16;
+    cell.authorWidth.constant = [DeviceInfo width]-16;
+    cell.dateWidth.constant = [DeviceInfo width]-16;
+    
+    [cell.site setNeedsUpdateConstraints];
+    [cell.author setNeedsUpdateConstraints];
+    [cell.date setNeedsUpdateConstraints];
     
 }
 

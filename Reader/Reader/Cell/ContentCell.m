@@ -8,9 +8,14 @@
 
 #import "ContentCell.h"
 
+// Service Layer
+#import "DeviceInfo.h"
+#import "JWLabel.h"
+
 @interface ContentCell()
 
-@property(nonatomic,strong) IBOutlet UILabel *content;
+@property(nonatomic,strong) IBOutlet NSLayoutConstraint *contentWidth;
+@property(nonatomic,strong) IBOutlet JWLabel *content;
 
 @end
 
@@ -43,6 +48,9 @@
                     content:(NSString *)content {
     
     cell.content.text = content;
+    
+    cell.contentWidth.constant = [DeviceInfo width]-16;
+    [cell.content setNeedsUpdateConstraints];
     
 }
 
