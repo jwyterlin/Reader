@@ -72,7 +72,12 @@
     
     [[ArticleDAO new] articleListWithSuccess:^(NSArray *articleList) {
         
-        self.articleList = articleList;
+        NSMutableArray *a = [NSMutableArray new];
+        [a addObjectsFromArray:articleList];
+        [a addObjectsFromArray:articleList];
+        [a addObjectsFromArray:articleList];
+        
+        self.articleList = [a mutableCopy];
         
         [self.tableView reloadData];
         

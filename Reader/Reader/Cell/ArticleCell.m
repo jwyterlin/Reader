@@ -82,6 +82,9 @@
             if ( cell.loading.isAnimating )
                 [cell.loading stopAnimating];
             
+            if ( [cell.noPhoto isDescendantOfView:cell.image] )
+                [cell.noPhoto removeFromSuperview];
+            
             if ( cell.tag == indexPath.row ) {
 
                 cell.image.image = [[UIImage alloc] initWithData:article.image];
@@ -129,6 +132,9 @@
                                          
                                          if ( updateCell ) {
                                              
+                                             if ( [updateCell.noPhoto isDescendantOfView:updateCell.image] )
+                                                 [updateCell.noPhoto removeFromSuperview];
+                                             
                                              [cell.loading stopAnimating];
                                              
                                              updateCell.image.alpha = 0;
@@ -142,10 +148,17 @@
                                          
                                      } else {
                                          
-                                         [cell.loading stopAnimating];
+                                         ArticleCell *updateCell = (id)[tableView cellForRowAtIndexPath:indexPath];
                                          
-                                         if ( ! [cell.noPhoto isDescendantOfView:cell.image] )
-                                             [cell.image addSubview:cell.noPhoto];
+                                         if ( updateCell ) {
+                                             
+                                             [cell.loading stopAnimating];
+                                             [updateCell.loading stopAnimating];
+                                             
+                                             if ( ! [updateCell.noPhoto isDescendantOfView:updateCell.image] )
+                                                 [updateCell.image addSubview:cell.noPhoto];
+                                             
+                                         }
                                          
                                      }
                                      
