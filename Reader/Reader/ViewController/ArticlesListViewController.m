@@ -18,6 +18,9 @@
 #import "Constants.h"
 #import "UITableView+Helper.h"
 
+// ViewController
+#import "ArticleDetailViewController.h"
+
 @interface ArticlesListViewController()<UITableViewDataSource,UITableViewDelegate>
 
 @property(nonatomic,strong) IBOutlet UITableView *tableView;
@@ -81,9 +84,12 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
+    ArticleModel *article = self.articleList[indexPath.row];
+    
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:kStoryboardMain bundle:nil];
     
-    UIViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:kNibArticleDetailViewController];
+    ArticleDetailViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:kNibArticleDetailViewController];
+    viewController.article = article;
     
     [self.navigationController pushViewController:viewController animated:YES];
 
