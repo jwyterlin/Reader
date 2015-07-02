@@ -10,4 +10,13 @@
 
 @interface Constants : NSObject
 
+// Date Formats
+extern NSString *const kDateFormatISO8601;
+extern NSString *const kDateTimeFormatISO8601;
+extern NSString *const kDateFormatBrazil;
+
+// TimeZone
+extern NSString *const kTimeZoneAmericaSaoPaulo;
+extern NSString *const kTimeZoneGreenwich;
+
 @end

@@ -8,9 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
+// Service Layer
+#import "DateHelper.h"
+#import "Validator.h"
+
 @interface GenericModel : NSObject
 
 -(NSArray *)setupListWithJson:(NSArray *)list;
 -(id)setupWithJson:(NSDictionary *)json;
+-(NSString *)receiveString:(NSString *)string;
+-(NSDate *)receiveDate:(NSString *)string;
 
 @end

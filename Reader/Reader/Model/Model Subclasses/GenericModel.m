@@ -42,4 +42,22 @@
     return self;
 }
 
+-(NSString *)receiveString:(NSString *)string {
+
+    if ( [Validator isEmptyString:string] )
+        return @"";
+    else
+        return string;
+
+}
+
+-(NSDate *)receiveDate:(NSString *)string {
+    
+    if ( [Validator isEmptyString:string] )
+        return nil;
+    else
+        return [DateHelper dateFromString:string];
+    
+}
+
 @end
