@@ -19,4 +19,13 @@ NSString *const kDateFormatBrazil = @"dd/MM/yyyy";
 NSString *const kTimeZoneAmericaSaoPaulo = @"America/Sao_Paulo";
 NSString *const kTimeZoneGreenwich = @"Greenwich";
 
+// Cell Nib Names
+NSString *const kNibNameArticleCell = @"ArticleCell";
+
+NSString *const kCachedImages = @"cachedImages";
+NSString *const kDateLastEmptyCache = @"dateLastEmptyCache";
+
+// Folder Names
+NSString *const kFolderNameArticle = @"article";
+
 @end

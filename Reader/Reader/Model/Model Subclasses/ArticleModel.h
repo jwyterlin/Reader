@@ -10,6 +10,7 @@
 
 @interface ArticleModel : GenericModel
 
+@property(nonatomic,strong) NSNumber *identifier;
 @property(nonatomic,strong) NSString *website;
 @property(nonatomic,strong) NSString *title;
 @property(nonatomic,strong) NSString *imageUrl;

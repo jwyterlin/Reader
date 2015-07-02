@@ -121,4 +121,15 @@
     
 }
 
++(void)addNumberOfDays:(int)days onDate:(NSDate *)date {
+    
+    int seconds = 60;
+    int minutes = 60;
+    int hours   = 24;
+    int daysToAdd = days*hours*minutes*seconds;
+    
+    date = [date dateByAddingTimeInterval:daysToAdd];
+    
+}
+
 @end

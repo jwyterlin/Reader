@@ -16,5 +16,6 @@
 +(NSString *)dateTimeFormattedISO8601Standard:(NSDate *)date;
 -(NSString *)getCurrentDate;
 -(NSString *)dateTimeFormat:(NSDate *)date;
++(void)addNumberOfDays:(int)days onDate:(NSDate *)date;
 
 @end

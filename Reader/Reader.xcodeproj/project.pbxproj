@@ -26,6 +26,11 @@
 		7BEE61D01B44B2B0001DBB28 /* ArticleDAO.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BEE61CF1B44B2B0001DBB28 /* ArticleDAO.m */; };
 		7BEE61D31B44BA69001DBB28 /* Validator.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BEE61D21B44BA69001DBB28 /* Validator.m */; };
 		7BEE61D61B44BDCA001DBB28 /* DateHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BEE61D51B44BDCA001DBB28 /* DateHelper.m */; };
+		7BEE61DC1B44C234001DBB28 /* ArticleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BEE61DA1B44C234001DBB28 /* ArticleCell.m */; };
+		7BEE61DD1B44C234001DBB28 /* ArticleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7BEE61DB1B44C234001DBB28 /* ArticleCell.xib */; };
+		7BEE61E01B44C36B001DBB28 /* GenericCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BEE61DF1B44C36B001DBB28 /* GenericCell.m */; };
+		7BEE61E41B44D109001DBB28 /* ImageDAO.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BEE61E31B44D109001DBB28 /* ImageDAO.m */; };
+		7BEE61E71B44D1A1001DBB28 /* JWMacros.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BEE61E61B44D1A1001DBB28 /* JWMacros.m */; };
 		BD5EA9836665D41875115F53 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E446FF49CF3028491FE2E694 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -86,6 +91,15 @@
 		7BEE61D21B44BA69001DBB28 /* Validator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Validator.m; path = "Service Layer/Validator.m"; sourceTree = "<group>"; };
 		7BEE61D41B44BDCA001DBB28 /* DateHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DateHelper.h; path = "Service Layer/DateHelper.h"; sourceTree = "<group>"; };
 		7BEE61D51B44BDCA001DBB28 /* DateHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DateHelper.m; path = "Service Layer/DateHelper.m"; sourceTree = "<group>"; };
+		7BEE61D91B44C234001DBB28 /* ArticleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ArticleCell.h; path = Cell/ArticleCell.h; sourceTree = "<group>"; };
+		7BEE61DA1B44C234001DBB28 /* ArticleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ArticleCell.m; path = Cell/ArticleCell.m; sourceTree = "<group>"; };
+		7BEE61DB1B44C234001DBB28 /* ArticleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ArticleCell.xib; path = Cell/ArticleCell.xib; sourceTree = "<group>"; };
+		7BEE61DE1B44C36B001DBB28 /* GenericCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GenericCell.h; path = Cell/GenericCell.h; sourceTree = "<group>"; };
+		7BEE61DF1B44C36B001DBB28 /* GenericCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GenericCell.m; path = Cell/GenericCell.m; sourceTree = "<group>"; };
+		7BEE61E21B44D109001DBB28 /* ImageDAO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageDAO.h; path = DAO/ImageDAO.h; sourceTree = "<group>"; };
+		7BEE61E31B44D109001DBB28 /* ImageDAO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageDAO.m; path = DAO/ImageDAO.m; sourceTree = "<group>"; };
+		7BEE61E51B44D1A1001DBB28 /* JWMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JWMacros.h; path = "Service Layer/JWMacros.h"; sourceTree = "<group>"; };
+		7BEE61E61B44D1A1001DBB28 /* JWMacros.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JWMacros.m; path = "Service Layer/JWMacros.m"; sourceTree = "<group>"; };
 		C4C8C4A1330826E8FC9F2EA6 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		E446FF49CF3028491FE2E694 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -160,6 +174,7 @@
 			children = (
 				5BAD553A1B4445B7007B0CBA /* AppDelegate */,
 				5BAD550D1B4442FD007B0CBA /* Assets.xcassets */,
+				7BEE61D71B44C1D4001DBB28 /* Cell */,
 				5BEC21491B444CB6008D2A24 /* DAO */,
 				5BAD55121B4442FD007B0CBA /* Info.plist */,
 				5BAD550F1B4442FD007B0CBA /* LaunchScreen.storyboard */,
@@ -250,6 +265,8 @@
 				7BEE61CF1B44B2B0001DBB28 /* ArticleDAO.m */,
 				5BEC214A1B444CD6008D2A24 /* GenericDAO.h */,
 				5BEC214B1B444CD6008D2A24 /* GenericDAO.m */,
+				7BEE61E21B44D109001DBB28 /* ImageDAO.h */,
+				7BEE61E31B44D109001DBB28 /* ImageDAO.m */,
 			);
 			name = DAO;
 			sourceTree = "<group>";
@@ -263,6 +280,8 @@
 				7BEE61CC1B44A816001DBB28 /* Constants.m */,
 				7BEE61D41B44BDCA001DBB28 /* DateHelper.h */,
 				7BEE61D51B44BDCA001DBB28 /* DateHelper.m */,
+				7BEE61E51B44D1A1001DBB28 /* JWMacros.h */,
+				7BEE61E61B44D1A1001DBB28 /* JWMacros.m */,
 				7BEE61C81B44A3DE001DBB28 /* NetAPIClient.h */,
 				7BEE61C91B44A3DE001DBB28 /* NetAPIClient.m */,
 				7BEE61C51B44A371001DBB28 /* Reachability.h */,
@@ -273,6 +292,34 @@
 				7BEE61D21B44BA69001DBB28 /* Validator.m */,
 			);
 			name = "Service Layer";
+			sourceTree = "<group>";
+		};
+		7BEE61D71B44C1D4001DBB28 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				7BEE61E11B44C370001DBB28 /* GenericCell */,
+				7BEE61D81B44C1E1001DBB28 /* ArticleCell */,
+			);
+			name = Cell;
+			sourceTree = "<group>";
+		};
+		7BEE61D81B44C1E1001DBB28 /* ArticleCell */ = {
+			isa = PBXGroup;
+			children = (
+				7BEE61D91B44C234001DBB28 /* ArticleCell.h */,
+				7BEE61DA1B44C234001DBB28 /* ArticleCell.m */,
+				7BEE61DB1B44C234001DBB28 /* ArticleCell.xib */,
+			);
+			name = ArticleCell;
+			sourceTree = "<group>";
+		};
+		7BEE61E11B44C370001DBB28 /* GenericCell */ = {
+			isa = PBXGroup;
+			children = (
+				7BEE61DE1B44C36B001DBB28 /* GenericCell.h */,
+				7BEE61DF1B44C36B001DBB28 /* GenericCell.m */,
+			);
+			name = GenericCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -380,6 +427,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7BEE61DD1B44C234001DBB28 /* ArticleCell.xib in Resources */,
 				5BAD55111B4442FD007B0CBA /* LaunchScreen.storyboard in Resources */,
 				5BAD550E1B4442FD007B0CBA /* Assets.xcassets in Resources */,
 				5BAD550C1B4442FD007B0CBA /* Main.storyboard in Resources */,
@@ -442,16 +490,20 @@
 			files = (
 				7BEE61CD1B44A816001DBB28 /* Constants.m in Sources */,
 				5BAD55361B4445A1007B0CBA /* AppDelegate.m in Sources */,
+				7BEE61DC1B44C234001DBB28 /* ArticleCell.m in Sources */,
 				7BEE61CA1B44A3DE001DBB28 /* NetAPIClient.m in Sources */,
 				7BEE61C11B44A2A4001DBB28 /* Connection.m in Sources */,
+				7BEE61E01B44C36B001DBB28 /* GenericCell.m in Sources */,
 				5BEC21481B444A89008D2A24 /* ArticleModel.m in Sources */,
 				5BEC214C1B444CD6008D2A24 /* GenericDAO.m in Sources */,
 				5BAD55391B4445B1007B0CBA /* ArticlesListViewController.m in Sources */,
+				7BEE61E41B44D109001DBB28 /* ImageDAO.m in Sources */,
 				7BEE61C41B44A2E2001DBB28 /* Routes.m in Sources */,
 				5BAD55031B4442FD007B0CBA /* main.m in Sources */,
 				7BEE61D31B44BA69001DBB28 /* Validator.m in Sources */,
 				7BEE61C71B44A371001DBB28 /* Reachability.m in Sources */,
 				7BEE61D61B44BDCA001DBB28 /* DateHelper.m in Sources */,
+				7BEE61E71B44D1A1001DBB28 /* JWMacros.m in Sources */,
 				5BEC21451B44499A008D2A24 /* GenericModel.m in Sources */,
 				7BEE61D01B44B2B0001DBB28 /* ArticleDAO.m in Sources */,
 			);

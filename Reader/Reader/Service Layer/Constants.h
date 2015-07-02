@@ -19,4 +19,13 @@ extern NSString *const kDateFormatBrazil;
 extern NSString *const kTimeZoneAmericaSaoPaulo;
 extern NSString *const kTimeZoneGreenwich;
 
+// Cell Nib Names
+extern NSString *const kNibNameArticleCell;
+
+extern NSString *const kCachedImages;
+extern NSString *const kDateLastEmptyCache;
+
+// Folder Names
+extern NSString *const kFolderNameArticle;
+
 @end
