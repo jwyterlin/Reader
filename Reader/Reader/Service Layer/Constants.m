@@ -14,6 +14,7 @@
 NSString *const kDateFormatISO8601 = @"yyyy-MM-dd";
 NSString *const kDateTimeFormatISO8601 = @"yyyy-MM-dd HH:mm:ss";
 NSString *const kDateFormatBrazil = @"dd/MM/yyyy";
+NSString *const kDateFormatMonthDayYear = @"MM/dd/yyyy";
 
 // TimeZone
 NSString *const kTimeZoneAmericaSaoPaulo = @"America/Sao_Paulo";

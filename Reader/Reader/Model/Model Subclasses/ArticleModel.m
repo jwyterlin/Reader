@@ -21,7 +21,7 @@
     articleModel.title = [self receiveString:j[@"title"]];
     articleModel.imageUrl = [self receiveString:j[@"image"]];
     articleModel.content = [self receiveString:j[@"content"]];
-    articleModel.author = [self receiveString:j[@"author"]];
+    articleModel.author = [self receiveString:j[@"authors"]];
     articleModel.date = [self receiveDate:j[@"date"]];
     
     return articleModel;

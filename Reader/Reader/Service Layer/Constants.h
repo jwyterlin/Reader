@@ -14,6 +14,7 @@
 extern NSString *const kDateFormatISO8601;
 extern NSString *const kDateTimeFormatISO8601;
 extern NSString *const kDateFormatBrazil;
+extern NSString *const kDateFormatMonthDayYear;
 
 // TimeZone
 extern NSString *const kTimeZoneAmericaSaoPaulo;

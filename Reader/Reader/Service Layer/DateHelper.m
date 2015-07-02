@@ -17,7 +17,7 @@
     
     NSDateFormatter *dateFormatter = [NSDateFormatter new];
     NSTimeZone *tz = [NSTimeZone timeZoneWithName:kTimeZoneGreenwich];
-    [dateFormatter setDateFormat:kDateTimeFormatISO8601];
+    [dateFormatter setDateFormat:kDateFormatMonthDayYear];
     [dateFormatter setTimeZone:tz];
     NSDate *date = [dateFormatter dateFromString:dateString];
     
