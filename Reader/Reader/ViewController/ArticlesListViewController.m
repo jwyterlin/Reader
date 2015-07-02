@@ -8,8 +8,15 @@
 
 #import "ArticlesListViewController.h"
 
+// Cell
+#import "ArticleCell.h"
+
 // DAO
 #import "ArticleDAO.h"
+
+// Service Layer
+#import "Constants.h"
+#import "UITableView+Helper.h"
 
 @interface ArticlesListViewController()<UITableViewDataSource,UITableViewDelegate>
 
@@ -23,7 +30,11 @@
 #pragma mark - View Lifecycle
 
 -(void)viewDidLoad {
+    
     [super viewDidLoad];
+    
+    [self setupTableView];
+    
 }
 
 -(void)didReceiveMemoryWarning {
@@ -37,7 +48,11 @@
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return [UITableViewCell new];
+    
+    ArticleModel *articleModel = self.articleList[indexPath.row];
+    
+    return [[ArticleCell new] articleCellAtIndexPath:indexPath tableView:tableView article:articleModel];
+    
 }
 
 #pragma mark - UITableViewDelegate methods
@@ -70,6 +85,15 @@
         }
         
     }];
+    
+}
+
+-(void)setupTableView {
+    
+    [self.tableView cleanTableFooter];
+    [self.tableView removeSeparator];
+
+    [self.tableView registerNibForCellReuseIdentifier:kNibNameArticleCell];
     
 }
 
