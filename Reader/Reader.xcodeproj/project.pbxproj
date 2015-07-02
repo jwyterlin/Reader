@@ -229,10 +229,10 @@
 		5BEC21421B44496A008D2A24 /* Model Subclasses */ = {
 			isa = PBXGroup;
 			children = (
-				5BEC21431B44499A008D2A24 /* GenericModel.h */,
-				5BEC21441B44499A008D2A24 /* GenericModel.m */,
 				5BEC21461B444A89008D2A24 /* ArticleModel.h */,
 				5BEC21471B444A89008D2A24 /* ArticleModel.m */,
+				5BEC21431B44499A008D2A24 /* GenericModel.h */,
+				5BEC21441B44499A008D2A24 /* GenericModel.m */,
 			);
 			name = "Model Subclasses";
 			sourceTree = "<group>";

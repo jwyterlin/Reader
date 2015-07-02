@@ -10,10 +10,12 @@
 
 @interface ArticleModel : GenericModel
 
+@property(nonatomic,strong) NSString *website;
 @property(nonatomic,strong) NSString *title;
-@property(nonatomic,strong) NSDate *date;
-@property(nonatomic,strong) NSString *author;
 @property(nonatomic,strong) NSString *imageUrl;
+@property(nonatomic,strong) NSString *content;
+@property(nonatomic,strong) NSString *author;
+@property(nonatomic,strong) NSDate *date;
 @property(nonatomic,strong) NSData *image;
 
 @end
