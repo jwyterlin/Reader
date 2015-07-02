@@ -33,4 +33,10 @@ NSString *const kDateLastEmptyCache = @"dateLastEmptyCache";
 // Folder Names
 NSString *const kFolderNameArticle = @"article";
 
+// Storyboard Names
+NSString *const kStoryboardMain = @"Main";
+
+// ViewController Nib Names
+NSString *const kNibArticleDetailViewController = @"ArticleDetailViewController";
+
 @end

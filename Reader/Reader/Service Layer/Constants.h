@@ -33,4 +33,10 @@ extern NSString *const kDateLastEmptyCache;
 // Folder Names
 extern NSString *const kFolderNameArticle;
 
+// Storyboard Names
+extern NSString *const kStoryboardMain;
+
+// ViewController Nib Names
+extern NSString *const kNibArticleDetailViewController;
+
 @end

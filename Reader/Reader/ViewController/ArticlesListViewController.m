@@ -39,6 +39,22 @@
     
 }
 
+-(void)viewWillAppear:(BOOL)animated {
+    
+    [super viewWillAppear:animated];
+    
+    self.navigationItem.title = @"Articles";
+    
+}
+
+-(void)viewWillDisappear:(BOOL)animated {
+    
+    [super viewWillDisappear:animated];
+    
+    self.navigationItem.title = @"";
+    
+}
+
 -(void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
@@ -64,6 +80,13 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:kStoryboardMain bundle:nil];
+    
+    UIViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:kNibArticleDetailViewController];
+    
+    [self.navigationController pushViewController:viewController animated:YES];
+
 }
 
 #pragma mark - Private methods
