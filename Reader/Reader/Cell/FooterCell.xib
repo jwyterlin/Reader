@@ -43,16 +43,27 @@
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gnt-aR-wjd" userLabel="Line">
+                        <rect key="frame" x="0.0" y="110" width="320" height="1"/>
+                        <color key="backgroundColor" red="0.82352941180000006" green="0.82352941180000006" blue="0.82352941180000006" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="atv-iw-ssZ"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
+                    <constraint firstAttribute="trailing" secondItem="Gnt-aR-wjd" secondAttribute="trailing" id="07e-cz-hGX"/>
                     <constraint firstAttribute="trailing" secondItem="0ax-3q-lxW" secondAttribute="trailing" constant="8" id="3Z9-7V-0ae"/>
                     <constraint firstItem="wPK-zd-5rf" firstAttribute="top" secondItem="Pli-SM-dRf" secondAttribute="bottom" constant="8" id="4Mc-I0-pYz"/>
+                    <constraint firstAttribute="bottom" secondItem="Gnt-aR-wjd" secondAttribute="bottom" id="7nM-fc-MYX"/>
                     <constraint firstItem="wPK-zd-5rf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="BQQ-g2-OeR"/>
                     <constraint firstItem="0ax-3q-lxW" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" constant="-29" id="MMY-op-dnp"/>
                     <constraint firstAttribute="trailing" secondItem="wPK-zd-5rf" secondAttribute="trailing" constant="8" id="RFb-XV-Nwa"/>
                     <constraint firstItem="0ax-3q-lxW" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="S54-DX-7nh"/>
                     <constraint firstItem="Pli-SM-dRf" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="TDz-dg-J7R"/>
                     <constraint firstAttribute="trailing" secondItem="Pli-SM-dRf" secondAttribute="trailing" constant="8" id="VqH-G7-izb"/>
+                    <constraint firstItem="Gnt-aR-wjd" firstAttribute="top" secondItem="wPK-zd-5rf" secondAttribute="bottom" constant="15" id="i65-uA-SuS"/>
+                    <constraint firstItem="Gnt-aR-wjd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="nhf-r7-mSU"/>
                     <constraint firstItem="wPK-zd-5rf" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" constant="29" id="s3R-VY-EqQ"/>
                     <constraint firstItem="0ax-3q-lxW" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="s8n-kG-wbM"/>
                     <constraint firstItem="Pli-SM-dRf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="tka-fH-VM9"/>

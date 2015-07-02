@@ -18,7 +18,7 @@
                         <constraints>
                             <constraint firstAttribute="width" priority="750" constant="304" id="Ktc-W6-CYe"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>

@@ -11,6 +11,7 @@
 // Service Layer
 #import "Constants.h"
 #import "DateHelper.h"
+#import "JWMacros.h"
 
 @interface GenericCell : UITableViewCell
 
