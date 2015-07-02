@@ -47,6 +47,13 @@
                             <constraint firstAttribute="width" constant="89" id="Oyd-ma-Srp"/>
                         </constraints>
                     </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bsv-eP-APs">
+                        <rect key="frame" x="0.0" y="108" width="320" height="1"/>
+                        <color key="backgroundColor" red="0.82352941176470584" green="0.82352941176470584" blue="0.82352941176470584" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="Q9X-8Y-jqR"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="86G-SG-6dh" secondAttribute="trailing" constant="8" id="6iR-Xu-VYP"/>
@@ -58,8 +65,11 @@
                     <constraint firstItem="wss-jv-oR3" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="ZRp-BT-Yy9"/>
                     <constraint firstAttribute="trailing" secondItem="Dua-bY-E9T" secondAttribute="trailing" constant="8" id="aj1-yV-IOn"/>
                     <constraint firstItem="86G-SG-6dh" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="jwe-32-acO"/>
+                    <constraint firstItem="bsv-eP-APs" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="kzg-4i-1mH"/>
                     <constraint firstAttribute="trailing" secondItem="dhT-Ut-4EC" secondAttribute="trailing" constant="8" id="nfr-20-DJD"/>
+                    <constraint firstAttribute="bottom" secondItem="bsv-eP-APs" secondAttribute="bottom" id="sdh-DL-4GD"/>
                     <constraint firstItem="86G-SG-6dh" firstAttribute="leading" secondItem="wss-jv-oR3" secondAttribute="trailing" constant="8" id="tIX-Oe-xj8"/>
+                    <constraint firstAttribute="trailing" secondItem="bsv-eP-APs" secondAttribute="trailing" id="zEW-BT-1Gj"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
