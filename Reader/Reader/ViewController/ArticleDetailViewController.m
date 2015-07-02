@@ -27,6 +27,7 @@
 @property(nonatomic) BOOL hasImage;
 @property(nonatomic,strong) IBOutlet NSLayoutConstraint *tableViewTop;
 @property(nonatomic,strong) IBOutlet NSLayoutConstraint *articleImageTop;
+@property(nonatomic) int heightNavBar;
 
 @end
 
@@ -56,8 +57,10 @@
     
     if ( self.navigationController ) {
         
-        self.articleImageTop.constant = self.navigationController.navigationBar.frame.size.height+20;
-        self.tableViewTop.constant = self.navigationController.navigationBar.frame.size.height+20;
+        self.heightNavBar = self.navigationController.navigationBar.frame.size.height + 20;
+        
+        self.articleImageTop.constant = self.heightNavBar;
+        self.tableViewTop.constant = self.heightNavBar;
         
         [self.articleImage setNeedsUpdateConstraints];
         [self.tableView setNeedsUpdateConstraints];
@@ -147,10 +150,10 @@
         // Parallax effect
         float offset = scrollView.contentOffset.y;
 
-        if ( offset > 0 && offset < self.articleImage.frame.size.height+64 ) {
+        if ( offset > 0 && offset < self.articleImage.frame.size.height ) {
 
             CGRect f = self.articleImage.frame;
-            f.origin.y = -offset/2;
+            f.origin.y = ( -offset / 2 ) + self.heightNavBar;
             self.articleImage.frame = f;
 
         }
