@@ -46,6 +46,8 @@
     
     [self prepareForFilter];
     
+    [[UITextField appearanceWhenContainedIn:[UISearchBar class], nil] setTintColor:[UIColor lightGrayColor]];
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated {
