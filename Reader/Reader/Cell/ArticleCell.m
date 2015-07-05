@@ -148,6 +148,9 @@
                                          
                                          article.image = imageDownloaded;
                                          
+                                         [article toArticle];
+                                         [Database saveEntity];
+                                         
                                          ArticleCell *updateCell = (id)[tableView cellForRowAtIndexPath:indexPath];
                                          
                                          if ( updateCell ) {
