@@ -114,7 +114,7 @@ static NSString *const kSqLiteExtension = @"sqlite";
             NSLog( @"Oops, could copy preloaded data" );
          }*/
         
-        NSLog( @"%@ doesn't exist", kDbSqLite );
+        // NSLog( @"%@ doesn't exist", kDbSqLite );
         
     } else {
         

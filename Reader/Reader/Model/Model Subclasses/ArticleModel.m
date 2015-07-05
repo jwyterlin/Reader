@@ -26,6 +26,9 @@
     articleModel.author = [self receiveString:j[@"authors"]];
     articleModel.date = [self receiveDate:j[@"date"]];
     
+    [articleModel toArticle];
+    [Database saveEntity];
+    
     return articleModel;
     
 }
@@ -33,34 +36,24 @@
 #pragma mark - Public methods
 
 -(Article *)toArticle {
-    
-    Article *article = [self entityByIdentifier:self.identifier entityName:[Article description]];
-    
-    if ( article == nil ) {
-        
-        NSManagedObjectContext *context = [[Database sharedInstance] managedObjectContext];
-        article = [NSEntityDescription insertNewObjectForEntityForName:[Article description] inManagedObjectContext:context];
-        
-    }
-    
-    // Attributes
-    @autoreleasepool {
-        
-        unsigned int numberOfProperties = 0;
-        
-        objc_property_t *propertyArray = class_copyPropertyList([self class], &numberOfProperties);
-        
-        for ( NSUInteger i = 0; i < numberOfProperties; i++ ) {
-            objc_property_t property = propertyArray[i];
-            NSString *name = [[NSString alloc] initWithUTF8String:property_getName( property )];
-            [article setValue:[self valueForKey:name] forKey:name];
-        }
-        
-        free( propertyArray );
-        
-    }
+
+    Article *article = (Article *)[self toEntityWithEntityName:[Article description] identifier:self.identifier];
     
     return article;
+    
+}
+
+-(ArticleModel *)articleModelFromArticle:(Article *)article {
+    
+    if ( ! article )
+        return nil;
+    
+    ArticleModel *articleModel = [ArticleModel new];
+    
+    // Attributes
+    [self setFieldsfromSource:article toDestination:articleModel class:[self class]];
+    
+    return articleModel;
     
 }
 

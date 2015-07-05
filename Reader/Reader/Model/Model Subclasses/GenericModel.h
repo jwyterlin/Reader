@@ -23,5 +23,7 @@
 -(NSDate *)receiveDate:(NSString *)string;
 -(NSArray *)allWithEntityName:(NSString *)entityName;
 -(id)entityByIdentifier:(NSNumber *)identifier entityName:(NSString *)entityName;
+-(void)setFieldsfromSource:(id)source toDestination:(id)destination class:(Class)class;
+-(id)toEntityWithEntityName:(NSString *)entityName identifier:(NSNumber *)identifier;
 
 @end

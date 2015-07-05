@@ -108,4 +108,42 @@
     
 }
 
+-(void)setFieldsfromSource:(id)source toDestination:(id)destination class:(Class)class {
+    
+    @autoreleasepool {
+        
+        unsigned int numberOfProperties = 0;
+        
+        objc_property_t *propertyArray = class_copyPropertyList(class, &numberOfProperties);
+        
+        for ( NSUInteger i = 0; i < numberOfProperties; i++ ) {
+            objc_property_t property = propertyArray[i];
+            NSString *name = [[NSString alloc] initWithUTF8String:property_getName( property )];
+            [destination setValue:[source valueForKey:name] forKey:name];
+        }
+        
+        free( propertyArray );
+        
+    }
+    
+}
+
+-(id)toEntityWithEntityName:(NSString *)entityName identifier:(NSNumber *)identifier {
+    
+    id entity = [self entityByIdentifier:identifier entityName:entityName];
+    
+    if ( entity == nil ) {
+        
+        NSManagedObjectContext *context = [[Database sharedInstance] managedObjectContext];
+        entity = [NSEntityDescription insertNewObjectForEntityForName:entityName inManagedObjectContext:context];
+        
+    }
+    
+    // Attributes
+    [self setFieldsfromSource:self toDestination:entity class:[self class]];
+    
+    return entity;
+    
+}
+
 @end
