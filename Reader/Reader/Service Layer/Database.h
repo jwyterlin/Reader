@@ -18,5 +18,6 @@
 +(instancetype)sharedInstance;
 +(void)saveContext;
 +(void)saveEntity;
++(void)flushDatabase;
 
 @end

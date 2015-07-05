@@ -192,5 +192,23 @@ static NSString *const kSqLiteExtension = @"sqlite";
     
 }
 
++(void)flushDatabase {
+    [[Database sharedInstance] flushDatabase];
+}
+
+-(void) flushDatabase {
+    
+    [__managedObjectContext lock];
+    NSArray *stores = [__persistentStoreCoordinator persistentStores];
+    for(NSPersistentStore *store in stores) {
+        [__persistentStoreCoordinator removePersistentStore:store error:nil];
+        [[NSFileManager defaultManager] removeItemAtPath:store.URL.path error:nil];
+    }
+    [__managedObjectContext unlock];
+    __managedObjectModel    = nil;
+    __managedObjectContext  = nil;
+    __persistentStoreCoordinator = nil;
+}
+
 @end
 
