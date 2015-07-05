@@ -44,6 +44,8 @@
 		7BDABF2F1B476B0E0032E0A7 /* ArticleDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BDABF2C1B476B0E0032E0A7 /* ArticleDetailViewController.m */; };
 		7BDABF301B476B0E0032E0A7 /* ArticlesListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BDABF2E1B476B0E0032E0A7 /* ArticlesListViewController.m */; };
 		7BFE6DDF1B49836900158389 /* Database.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BFE6DDE1B49836900158389 /* Database.m */; };
+		7BFE6DE21B49884400158389 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7BFE6DE01B49884400158389 /* Model.xcdatamodeld */; };
+		7BFE6DE51B4989B400158389 /* Article.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BFE6DE41B4989B400158389 /* Article.m */; };
 		B687C08E69FF96D0191BDBF7 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0934855A2ABDAFB1ADBC38AD /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -129,6 +131,9 @@
 		7BDABF2E1B476B0E0032E0A7 /* ArticlesListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ArticlesListViewController.m; path = ViewController/ArticlesListViewController.m; sourceTree = "<group>"; };
 		7BFE6DDD1B49836900158389 /* Database.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Database.h; path = "Service Layer/Database.h"; sourceTree = "<group>"; };
 		7BFE6DDE1B49836900158389 /* Database.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Database.m; path = "Service Layer/Database.m"; sourceTree = "<group>"; };
+		7BFE6DE11B49884400158389 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		7BFE6DE31B4989B400158389 /* Article.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Article.h; path = "Model/Model Classes/Article.h"; sourceTree = "<group>"; };
+		7BFE6DE41B4989B400158389 /* Article.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Article.m; path = "Model/Model Classes/Article.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -337,6 +342,7 @@
 			children = (
 				7BDABEFE1B476AB70032E0A7 /* Model Subclasses */,
 				7BDABEFD1B476AAF0032E0A7 /* Model Classes */,
+				7BFE6DE01B49884400158389 /* Model.xcdatamodeld */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -344,6 +350,8 @@
 		7BDABEFD1B476AAF0032E0A7 /* Model Classes */ = {
 			isa = PBXGroup;
 			children = (
+				7BFE6DE31B4989B400158389 /* Article.h */,
+				7BFE6DE41B4989B400158389 /* Article.m */,
 			);
 			name = "Model Classes";
 			sourceTree = "<group>";
@@ -563,6 +571,7 @@
 				7BDABEFA1B476A8A0032E0A7 /* GenericDAO.m in Sources */,
 				7BDABF261B476AF00032E0A7 /* Reachability.m in Sources */,
 				7BDABEE21B4769D50032E0A7 /* ContentCell.m in Sources */,
+				7BFE6DE51B4989B400158389 /* Article.m in Sources */,
 				7BDABEE41B4769D50032E0A7 /* FooterCell.m in Sources */,
 				7BDABF221B476AF00032E0A7 /* DeviceInfo.m in Sources */,
 				7BDABF281B476AF00032E0A7 /* UITableView+Helper.m in Sources */,
@@ -571,6 +580,7 @@
 				7BDABF1F1B476AF00032E0A7 /* Connection.m in Sources */,
 				7BDABF251B476AF00032E0A7 /* NetAPIClient.m in Sources */,
 				7BDABF301B476B0E0032E0A7 /* ArticlesListViewController.m in Sources */,
+				7BFE6DE21B49884400158389 /* Model.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -781,6 +791,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		7BFE6DE01B49884400158389 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				7BFE6DE11B49884400158389 /* Model.xcdatamodel */,
+			);
+			currentVersion = 7BFE6DE11B49884400158389 /* Model.xcdatamodel */;
+			name = Model.xcdatamodeld;
+			path = Model/Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 7BDABE991B47693D0032E0A7 /* Project object */;
 }
