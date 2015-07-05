@@ -110,6 +110,37 @@
 
 }
 
+#pragma mark - UISearchDisplayDelegate Methods
+
+-(void)searchDisplayControllerWillBeginSearch:(UISearchDisplayController *)controller {
+    
+
+    
+}
+
+-(void)searchDisplayControllerDidEndSearch:(UISearchDisplayController *)controller {
+
+}
+
+-(void)searchDisplayController:(UISearchDisplayController *)controller didLoadSearchResultsTableView:(UITableView *)tableView {
+
+}
+
+-(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString {
+    return YES;
+}
+
+-(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchScope:(NSInteger)searchOption {
+    return YES;
+}
+
+#pragma mark - Content Filtering
+
+-(void)filterContentForSearchText:(NSString *)searchText scope:(NSString *)scope {
+    
+}
+
+
 #pragma mark - Private methods
 
 -(void)downloadList {
