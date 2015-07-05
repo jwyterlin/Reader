@@ -43,6 +43,7 @@
 		7BDABF291B476AF00032E0A7 /* Validator.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BDABF1D1B476AF00032E0A7 /* Validator.m */; };
 		7BDABF2F1B476B0E0032E0A7 /* ArticleDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BDABF2C1B476B0E0032E0A7 /* ArticleDetailViewController.m */; };
 		7BDABF301B476B0E0032E0A7 /* ArticlesListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BDABF2E1B476B0E0032E0A7 /* ArticlesListViewController.m */; };
+		7BFE6DDF1B49836900158389 /* Database.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BFE6DDE1B49836900158389 /* Database.m */; };
 		B687C08E69FF96D0191BDBF7 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0934855A2ABDAFB1ADBC38AD /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -126,6 +127,8 @@
 		7BDABF2C1B476B0E0032E0A7 /* ArticleDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ArticleDetailViewController.m; path = ViewController/ArticleDetailViewController.m; sourceTree = "<group>"; };
 		7BDABF2D1B476B0E0032E0A7 /* ArticlesListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ArticlesListViewController.h; path = ViewController/ArticlesListViewController.h; sourceTree = "<group>"; };
 		7BDABF2E1B476B0E0032E0A7 /* ArticlesListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ArticlesListViewController.m; path = ViewController/ArticlesListViewController.m; sourceTree = "<group>"; };
+		7BFE6DDD1B49836900158389 /* Database.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Database.h; path = "Service Layer/Database.h"; sourceTree = "<group>"; };
+		7BFE6DDE1B49836900158389 /* Database.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Database.m; path = "Service Layer/Database.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -365,6 +368,8 @@
 				7BDABF091B476AF00032E0A7 /* Connection.m */,
 				7BDABF0A1B476AF00032E0A7 /* Constants.h */,
 				7BDABF0B1B476AF00032E0A7 /* Constants.m */,
+				7BFE6DDD1B49836900158389 /* Database.h */,
+				7BFE6DDE1B49836900158389 /* Database.m */,
 				7BDABF0C1B476AF00032E0A7 /* DateHelper.h */,
 				7BDABF0D1B476AF00032E0A7 /* DateHelper.m */,
 				7BDABF0E1B476AF00032E0A7 /* DeviceInfo.h */,
@@ -540,6 +545,7 @@
 			files = (
 				7BDABEFB1B476A8A0032E0A7 /* ImageDAO.m in Sources */,
 				7BDABEE91B4769D50032E0A7 /* TitleCell.m in Sources */,
+				7BFE6DDF1B49836900158389 /* Database.m in Sources */,
 				7BDABF291B476AF00032E0A7 /* Validator.m in Sources */,
 				7BDABF031B476AC70032E0A7 /* ArticleModel.m in Sources */,
 				7BDABF2F1B476B0E0032E0A7 /* ArticleDetailViewController.m in Sources */,
