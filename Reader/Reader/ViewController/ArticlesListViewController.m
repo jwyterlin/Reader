@@ -100,10 +100,11 @@
     if ( ! self.isDownloading ) {
         
         self.isDownloading = YES;
+
+        NSArray *list = [[ArticleModel new] allArticlesModel];
         
-        [Database flushDatabase];
-        
-        self.articleList = [[ArticleModel new] allArticlesModel];
+        if ( list.count > 0 )
+            self.articleList = list;
         
         [self.tableView reloadData];
         
@@ -320,10 +321,13 @@
         
         if ( articleList != nil )
             if ( articleList.count != 0 ) {
+                
                 self.articleList = [articleList mutableCopy];
                 [self prepareForFilter];
                 [self.tableView reloadData];
+                
                 return;
+                
             }
         
         [self showNoArticles];

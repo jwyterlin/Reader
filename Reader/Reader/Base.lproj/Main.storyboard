@@ -84,7 +84,13 @@
                             <constraint firstItem="EuN-tt-31i" firstAttribute="leading" secondItem="5Ee-K2-J3z" secondAttribute="leading" id="rgU-H7-f3O"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="oqT-jJ-Xrb"/>
+                    <navigationItem key="navigationItem" id="oqT-jJ-Xrb">
+                        <barButtonItem key="rightBarButtonItem" title="Refresh" id="vQK-bS-fxy">
+                            <connections>
+                                <action selector="refresh:" destination="fuy-C0-GKQ" id="CLp-AJ-GeH"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="loading" destination="hPc-6j-cYA" id="B6M-zN-rp1"/>
                         <outlet property="loadingListLabel" destination="i5p-2L-nKZ" id="peP-3P-xUF"/>

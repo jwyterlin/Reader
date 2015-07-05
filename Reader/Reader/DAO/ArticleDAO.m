@@ -35,8 +35,15 @@
     [[Connection new] connectWithMethod:RequestMethodGet url:[Routes WS_ARTICLE_LIST] parameters:nil success:^(id responseData) {
 
         NSArray *result = (NSArray *)[responseData copy];
-
-        NSArray *articleList = [[ArticleModel new] setupListWithJson:result];
+        
+        NSArray *articleList = nil;
+        
+        if ( result.count > 0 ) {
+            
+            [Database flushDatabase];
+            articleList = [[ArticleModel new] setupListWithJson:result];
+            
+        }
 
         if ( success )
             success( articleList );
