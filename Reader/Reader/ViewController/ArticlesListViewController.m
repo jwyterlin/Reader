@@ -404,6 +404,7 @@
 }
 
 -(void)stopLoading {
+    self.isDownloading = NO;
     [self.loading stopAnimating];
     self.loadingListLabel.hidden = YES;
     [self.refresh endRefreshing];
