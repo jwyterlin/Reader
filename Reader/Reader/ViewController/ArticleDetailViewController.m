@@ -42,8 +42,10 @@
     if ( self.article.image )
         self.hasImage = YES;
     
-    if ( self.hasImage )
+    if ( self.hasImage ) {
         self.articleImage.image = [UIImage imageWithData:self.article.image];
+        self.articleImage.contentMode = UIViewContentModeScaleAspectFill;
+    }
     
     [self setupTableView];
     
