@@ -57,4 +57,27 @@
     
 }
 
+-(NSArray *)allArticles {
+    
+    return [self allWithEntityName:[Article description]];
+    
+}
+
+-(NSArray *)allArticlesModel {
+    
+    NSArray *articles = [self allArticles];
+    
+    NSMutableArray *articleModels = [NSMutableArray new];
+    
+    for ( Article *article in articles ) {
+        
+        ArticleModel *articleModel = [[ArticleModel new] articleModelFromArticle:article];
+        [articleModels addObject:articleModel];
+        
+    }
+    
+    return [articleModels mutableCopy];
+    
+}
+
 @end

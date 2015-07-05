@@ -56,17 +56,38 @@
                                     <outlet property="delegate" destination="fuy-C0-GKQ" id="F6l-2R-JjU"/>
                                 </connections>
                             </tableView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="hPc-6j-cYA">
+                                <rect key="frame" x="290" y="275" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="1fO-Gj-pIa"/>
+                                    <constraint firstAttribute="width" constant="20" id="6UQ-sa-o7h"/>
+                                </constraints>
+                            </activityIndicatorView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading Articles..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i5p-2L-nKZ">
+                                <rect key="frame" x="16" y="303" width="568" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="EuN-tt-31i" secondAttribute="trailing" id="22k-9N-lgZ"/>
+                            <constraint firstAttribute="trailing" secondItem="i5p-2L-nKZ" secondAttribute="trailing" constant="16" id="HUu-C1-c5Y"/>
                             <constraint firstItem="XfM-cG-rm2" firstAttribute="top" secondItem="EuN-tt-31i" secondAttribute="bottom" id="Luh-ZZ-2Vg"/>
+                            <constraint firstAttribute="centerX" secondItem="hPc-6j-cYA" secondAttribute="centerX" id="LxM-Qn-UrH"/>
+                            <constraint firstItem="i5p-2L-nKZ" firstAttribute="leading" secondItem="5Ee-K2-J3z" secondAttribute="leading" constant="16" id="T5Z-Nv-ywH"/>
+                            <constraint firstAttribute="centerY" secondItem="i5p-2L-nKZ" secondAttribute="centerY" constant="-14" id="UZS-Sn-TYt"/>
                             <constraint firstItem="EuN-tt-31i" firstAttribute="top" secondItem="5Ee-K2-J3z" secondAttribute="top" id="eHy-W5-BWR"/>
+                            <constraint firstAttribute="centerX" secondItem="i5p-2L-nKZ" secondAttribute="centerX" id="nsh-gD-Y9Z"/>
+                            <constraint firstAttribute="centerY" secondItem="hPc-6j-cYA" secondAttribute="centerY" constant="15" id="orN-NX-L8I"/>
                             <constraint firstItem="EuN-tt-31i" firstAttribute="leading" secondItem="5Ee-K2-J3z" secondAttribute="leading" id="rgU-H7-f3O"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="oqT-jJ-Xrb"/>
                     <connections>
+                        <outlet property="loading" destination="hPc-6j-cYA" id="B6M-zN-rp1"/>
+                        <outlet property="loadingListLabel" destination="i5p-2L-nKZ" id="peP-3P-xUF"/>
                         <outlet property="searchDisplayController" destination="xlD-m3-ncJ" id="ocX-KU-Eti"/>
                         <outlet property="tableView" destination="EuN-tt-31i" id="kQR-7x-gXa"/>
                     </connections>

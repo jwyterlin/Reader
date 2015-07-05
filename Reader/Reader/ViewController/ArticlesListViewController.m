@@ -25,10 +25,14 @@
 @interface ArticlesListViewController()<UITableViewDataSource,UITableViewDelegate,UISearchBarDelegate,UISearchDisplayDelegate>
 
 @property(nonatomic,strong) IBOutlet UITableView *tableView;
+@property(nonatomic,strong) IBOutlet UIActivityIndicatorView *loading;
+@property(nonatomic,strong) IBOutlet UILabel *loadingListLabel;
+
 @property(nonatomic,strong) NSArray *articleList;
 @property(nonatomic,strong) NSMutableArray *filtered;
 @property(nonatomic,strong) NSArray *aux;
 @property(nonatomic) BOOL isChangedNoResults;
+@property(nonatomic) BOOL isDownloading;
 
 @end
 
@@ -40,11 +44,11 @@
     
     [super viewDidLoad];
     
+    self.articleList = [[ArticleModel new] allArticlesModel];
+    
+    [self populateArticlesList];
+    
     [self setupTableView];
-    
-    [self downloadList];
-    
-    [self prepareForFilter];
     
     [[UITextField appearanceWhenContainedIn:[UISearchBar class], nil] setTintColor:[UIColor lightGrayColor]];
     
@@ -85,6 +89,26 @@
 -(void)listenCheckArticleAsRead:(NSNotification *)notification {
     
     [self.tableView reloadData];
+    
+}
+
+#pragma mark - IBAction Methods
+
+-(IBAction)refresh:(id)sender {
+    
+    if ( ! self.isDownloading ) {
+        
+        self.isDownloading = YES;
+        
+        [Database flushDatabase];
+        
+        self.articleList = [[ArticleModel new] allArticlesModel];
+        
+        [self.tableView reloadData];
+        
+        [self populateArticlesList];
+        
+    }
     
 }
 
@@ -220,6 +244,24 @@
 
 #pragma mark - Private methods
 
+-(void)populateArticlesList {
+    
+    self.tableView.hidden = NO;
+    
+    if ( self.articleList.count == 0 ) {
+        
+        [self downloadList];
+        
+    } else {
+        
+        self.loadingListLabel.hidden = YES;
+        [self prepareForFilter];
+        [self.tableView reloadData];
+        
+    }
+    
+}
+
 -(NSArray *)rightListInTableView:(UITableView *)tableView {
     
     NSArray *list;
@@ -265,21 +307,37 @@
 
 -(void)downloadList {
     
+    [self startLoading];
+    
+    self.loadingListLabel.text = @"Loading...";
+    
     [[ArticleDAO new] articleListWithSuccess:^(NSArray *articleList) {
+        
+        [self stopLoading];
         
         self.articleList = articleList;
         
-        [self prepareForFilter];
+        if ( articleList != nil )
+            if ( articleList.count != 0 ) {
+                self.articleList = [articleList mutableCopy];
+                [self prepareForFilter];
+                [self.tableView reloadData];
+                return;
+            }
         
-        [self.tableView reloadData];
+        [self showNoArticles];
         
     } failure:^(BOOL hasNoConnection, NSError *error) {
         
+        [self stopLoading];
+        
         if ( hasNoConnection ) {
+            [self showConnectionError:@"No Connection."];
             return;
         }
         
         if ( error ) {
+            [self showConnectionError:@"Connection failed. Please, try again."];
             return;
         }
         
@@ -318,6 +376,36 @@
     
     // Initialize the filtered with a capacity equal to the list's capacity
     self.filtered = [NSMutableArray arrayWithCapacity:self.articleList.count];
+    
+}
+
+-(void)startLoading {
+    [self.loading startAnimating];
+    self.loadingListLabel.hidden = NO;
+}
+
+-(void)stopLoading {
+    [self.loading stopAnimating];
+    self.loadingListLabel.hidden = YES;
+}
+
+-(void)showNoArticles {
+    
+    self.tableView.hidden = YES;
+    
+    self.loadingListLabel.hidden = NO;
+    self.loadingListLabel.text = @"No article found";
+    
+}
+
+-(void)showConnectionError:(NSString *)msg {
+    
+    [self stopLoading];
+    
+    self.tableView.hidden = YES;
+    
+    self.loadingListLabel.hidden = NO;
+    self.loadingListLabel.text = msg;
     
 }
 

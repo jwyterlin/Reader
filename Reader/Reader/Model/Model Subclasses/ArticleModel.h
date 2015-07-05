@@ -24,5 +24,7 @@
 
 -(Article *)toArticle;
 -(ArticleModel *)articleModelFromArticle:(Article *)article;
+-(NSArray *)allArticles;
+-(NSArray *)allArticlesModel;
 
 @end
