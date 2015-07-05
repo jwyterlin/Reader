@@ -256,7 +256,8 @@
         
     } else {
         
-        self.loadingListLabel.hidden = YES;
+        [self stopLoading];
+        
         [self prepareForFilter];
         [self.tableView reloadData];
         
