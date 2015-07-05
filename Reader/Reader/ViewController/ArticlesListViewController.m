@@ -47,6 +47,9 @@
     
     self.articleList = [[ArticleModel new] allArticlesModel];
     
+    if ( self.articleList.count != 0 )
+        self.navigationItem.rightBarButtonItem = nil;
+    
     [self populateArticlesList];
     
     [self setupTableView];
@@ -322,6 +325,8 @@
         
         if ( articleList != nil )
             if ( articleList.count != 0 ) {
+                
+                self.navigationItem.rightBarButtonItem = nil;
                 
                 self.articleList = [articleList mutableCopy];
                 [self prepareForFilter];
