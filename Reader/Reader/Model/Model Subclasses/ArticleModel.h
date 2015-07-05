@@ -23,5 +23,6 @@
 @property(nonatomic,strong) NSNumber *wasRead;
 
 -(Article *)toArticle;
+-(ArticleModel *)articleModelFromArticle:(Article *)article;
 
 @end
