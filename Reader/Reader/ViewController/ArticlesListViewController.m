@@ -29,7 +29,6 @@
 @property(nonatomic,strong) NSMutableArray *filtered;
 @property(nonatomic,strong) NSArray *aux;
 @property(nonatomic) BOOL isChangedNoResults;
-@property(nonatomic,strong) UIView *bgSearchBarView;
 
 @end
 
@@ -80,12 +79,18 @@
 #pragma mark - UITableViewDataSource methods
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.articleList.count;
+    
+    NSArray *list = [self rightListInTableView:tableView];
+    
+    return list.count;
+    
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    ArticleModel *articleModel = self.articleList[indexPath.row];
+    NSArray *list = [self rightListInTableView:tableView];
+    
+    ArticleModel *articleModel = list[indexPath.row];
     
     return [[ArticleCell new] articleCellAtIndexPath:indexPath tableView:tableView article:articleModel];
     
@@ -99,7 +104,9 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    ArticleModel *article = self.articleList[indexPath.row];
+    NSArray *list = [self rightListInTableView:tableView];
+    
+    ArticleModel *article = list[indexPath.row];
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:kStoryboardMain bundle:nil];
     
@@ -114,7 +121,23 @@
 
 -(void)searchDisplayControllerWillBeginSearch:(UISearchDisplayController *)controller {
     
-
+    [controller.searchBar setShowsCancelButton:YES animated:NO];
+    
+    for ( UIView *subview in [controller.searchBar subviews] ) {
+        
+        if ([subview isKindOfClass:[UIButton class]]) {
+            
+            [(UIButton *)subview setTitle:@"Cancel" forState:UIControlStateNormal];
+            
+        } else if ( [subview isKindOfClass:[UIView class]] ) {
+            
+            for (UIView *otherSubview in subview.subviews )
+                if ( [otherSubview isKindOfClass:[UIButton class]] )
+                    [(UIButton *)otherSubview setTitle:@"Cancel" forState:UIControlStateNormal];
+            
+        }
+        
+    }
     
 }
 
@@ -123,31 +146,105 @@
 }
 
 -(void)searchDisplayController:(UISearchDisplayController *)controller didLoadSearchResultsTableView:(UITableView *)tableView {
-
+    if ( ! self.isChangedNoResults )
+        if ( [self.filtered count] == 0 )
+            [NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(translateNoResultsText:) userInfo:nil repeats:YES];
 }
 
 -(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString {
+
+    // Tells the table data source to reload when text changes
+    NSUInteger index = [self.searchDisplayController.searchBar selectedScopeButtonIndex];
+    
+    [self filterContentForSearchText:searchString scope:[self.searchDisplayController.searchBar scopeButtonTitles][index]];
+    
+    // Return YES to cause the search result table view to be reloaded.
     return YES;
+    
 }
 
 -(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchScope:(NSInteger)searchOption {
+
+    // Tells the table data source to reload when scope bar selection changes
+    [self filterContentForSearchText:self.searchDisplayController.searchBar.text
+                               scope:[self.searchDisplayController.searchBar scopeButtonTitles][searchOption]];
+    
+    // Return YES to cause the search result table view to be reloaded.
     return YES;
+    
 }
 
 #pragma mark - Content Filtering
 
 -(void)filterContentForSearchText:(NSString *)searchText scope:(NSString *)scope {
     
+    // Update the filtered array based on the search text and scope.
+    // Remove all objects from the filtered search array
+    [self.filtered removeAllObjects];
+    
+    // Filter the array using NSPredicate
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.title contains[c] %@",searchText];
+    
+    NSMutableArray *listingsTemp = [NSMutableArray new];
+
+    listingsTemp = [[self.aux filteredArrayUsingPredicate:predicate] copy];
+    
+    self.filtered = [listingsTemp mutableCopy];
+    
 }
 
-
 #pragma mark - Private methods
+
+-(NSArray *)rightListInTableView:(UITableView *)tableView {
+    
+    NSArray *list;
+    
+    if ( tableView == self.searchDisplayController.searchResultsTableView )
+        list = self.filtered;
+    else
+        list = self.articleList;
+    
+    return list;
+    
+}
+
+-(void)translateNoResultsText:(NSTimer *)timer {
+    
+    if ( self.isChangedNoResults ) {
+        
+        [timer invalidate];
+        
+    } else {
+        
+        for ( UIView *subview in [self.searchDisplayController.searchResultsTableView subviews] ) {
+            
+            if ( [subview isKindOfClass:[UILabel class]] ) {
+                
+                UILabel *targetLabel = (UILabel *)subview;
+                
+                if ( [targetLabel.text isEqualToString:@"No Results"] ) {
+                    
+                    [targetLabel setText:@"No Results"];
+                    self.isChangedNoResults = YES;
+                    [timer invalidate];
+                    
+                }
+                
+            }
+            
+        }
+        
+    }
+    
+}
 
 -(void)downloadList {
     
     [[ArticleDAO new] articleListWithSuccess:^(NSArray *articleList) {
         
         self.articleList = articleList;
+        
+        [self prepareForFilter];
         
         [self.tableView reloadData];
         
@@ -169,8 +266,11 @@
     
     [self.tableView cleanTableFooter];
     [self.tableView removeSeparator];
-
     [self.tableView registerNibForCellReuseIdentifier:kNibNameArticleCell];
+    
+    [self.searchDisplayController.searchResultsTableView cleanTableFooter];
+    [self.searchDisplayController.searchResultsTableView removeSeparator];
+    [self.searchDisplayController.searchResultsTableView registerNibForCellReuseIdentifier:kNibNameArticleCell];
     
     self.tableView.tableHeaderView = self.searchDisplayController.searchBar;
     
@@ -193,37 +293,6 @@
     
     // Initialize the filtered with a capacity equal to the list's capacity
     self.filtered = [NSMutableArray arrayWithCapacity:self.articleList.count];
-    
-}
-
--(void)showBgSearchBarView {
-    
-    if ( ! [self.bgSearchBarView isDescendantOfView:self.view] )
-        [self.view addSubview:self.bgSearchBarView];
-    
-    self.bgSearchBarView.hidden = NO;
-    [self.view bringSubviewToFront:self.bgSearchBarView];
-    
-}
-
--(void)dismissBgSearchBarView {
-    
-    if ( [self.bgSearchBarView isDescendantOfView:self.view] )
-        self.bgSearchBarView.hidden = YES;
-    
-}
-
-#pragma mark - Creating components
-
--(UIView *)bgSearchBarView {
-    
-    if ( ! _bgSearchBarView ) {
-        
-        _bgSearchBarView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [DeviceInfo width], 20 )];
-        
-    }
-    
-    return _bgSearchBarView;
     
 }
 
