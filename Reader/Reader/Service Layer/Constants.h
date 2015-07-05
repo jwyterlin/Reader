@@ -39,4 +39,7 @@ extern NSString *const kStoryboardMain;
 // ViewController Nib Names
 extern NSString *const kNibArticleDetailViewController;
 
+// Notification Names
+extern NSString *const kNotificationNameCheckArticleAsRead;
+
 @end

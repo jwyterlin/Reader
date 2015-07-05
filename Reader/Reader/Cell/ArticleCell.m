@@ -58,12 +58,33 @@
     
     cell.date.text = [NSString stringWithFormat:@"Date: %@", dateString];
     
+    // Check font to represent if this article was read or not
+    [self checkWasReadInCell:cell wasRead:[article.wasRead boolValue]];
+    
+    // Image
     cell.image.layer.borderColor = [UIColor colorWithRed:230.0/256.0
                                                    green:230.0/256.0
                                                     blue:230.0/256.0 alpha:1.0].CGColor;
     cell.image.layer.borderWidth = 1.0;
     
     [self downloadImageWithArticleCell:cell tableView:tableView indexPath:indexPath article:article];
+    
+}
+
+#pragma mark - Private methods
+
+-(void)checkWasReadInCell:(ArticleCell *)cell wasRead:(BOOL)wasRead {
+    
+    UIFont *font;
+    
+    if ( wasRead )
+        font = [UIFont systemFontOfSize:17.0];
+    else
+        font = [UIFont boldSystemFontOfSize:17.0];
+    
+    cell.title.font = font;
+    cell.author.font = font;
+    cell.date.font = font;
     
 }
 

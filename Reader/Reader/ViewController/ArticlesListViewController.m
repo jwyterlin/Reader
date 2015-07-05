@@ -48,6 +48,8 @@
     
     [[UITextField appearanceWhenContainedIn:[UISearchBar class], nil] setTintColor:[UIColor lightGrayColor]];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(listenCheckArticleAsRead:) name:kNotificationNameCheckArticleAsRead object:nil];
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated {
@@ -76,6 +78,14 @@
 
 -(void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+
+#pragma mark - Notification methods
+
+-(void)listenCheckArticleAsRead:(NSNotification *)notification {
+    
+    [self.tableView reloadData];
+    
 }
 
 #pragma mark - UITableViewDataSource methods

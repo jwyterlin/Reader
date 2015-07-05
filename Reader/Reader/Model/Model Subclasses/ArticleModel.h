@@ -18,5 +18,6 @@
 @property(nonatomic,strong) NSString *author;
 @property(nonatomic,strong) NSDate *date;
 @property(nonatomic,strong) NSData *image;
+@property(nonatomic,strong) NSNumber *wasRead;
 
 @end

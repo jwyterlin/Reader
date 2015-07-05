@@ -39,4 +39,7 @@ NSString *const kStoryboardMain = @"Main";
 // ViewController Nib Names
 NSString *const kNibArticleDetailViewController = @"ArticleDetailViewController";
 
+// Notification Names
+NSString *const kNotificationNameCheckArticleAsRead = @"CheckArticleAsRead";
+
 @end

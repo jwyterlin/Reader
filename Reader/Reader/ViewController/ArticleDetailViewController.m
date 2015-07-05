@@ -75,6 +75,11 @@
     
     self.navigationItem.title = @"";
     
+    if ( ! [self.article.wasRead boolValue] ) {
+        self.article.wasRead = [NSNumber numberWithBool:YES];
+        [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationNameCheckArticleAsRead object:nil];
+    }
+
 }
 
 -(void)didReceiveMemoryWarning {
