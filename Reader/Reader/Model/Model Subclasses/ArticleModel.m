@@ -19,6 +19,7 @@
     
     ArticleModel *articleModel = [ArticleModel new];
     
+    articleModel.identifier = [self nextID];
     articleModel.website = [self receiveString:j[@"website"]];
     articleModel.title = [self receiveString:j[@"title"]];
     articleModel.imageUrl = [self receiveString:j[@"image"]];
@@ -77,6 +78,19 @@
     }
     
     return [articleModels mutableCopy];
+    
+}
+
+-(NSNumber *)lastID {
+    return [self lastIDWithEntityName:[Article description]];
+}
+
+-(NSNumber *)nextID {
+    
+    NSNumber *lastID = [self lastID];
+    NSNumber *nextID = [NSNumber numberWithInt:[lastID intValue]+1];
+    
+    return nextID;
     
 }
 

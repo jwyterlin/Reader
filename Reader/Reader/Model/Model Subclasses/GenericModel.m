@@ -146,4 +146,35 @@
     
 }
 
+-(NSArray *)allEntitiesWithEntityName:(NSString *)entityName {
+    
+    if ( ! entityName )
+        return nil;
+    
+    NSManagedObjectContext *context = [[Database sharedInstance] managedObjectContext];
+    
+    NSEntityDescription *entity = [NSEntityDescription entityForName:entityName inManagedObjectContext:context];
+    
+    NSFetchRequest *fetchRequest = [NSFetchRequest new];
+    [fetchRequest setEntity:entity];
+    
+    NSError *error;
+    
+    NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
+    
+    return fetchedObjects;
+    
+}
+
+-(NSNumber *)lastIDWithEntityName:(NSString *)entityName {
+    NSArray *all = [self allEntitiesWithEntityName:entityName];
+    return [NSNumber numberWithInt:(int)all.count];
+}
+
+-(NSNumber *)nextIDWithEntityName:(NSString *)entityName {
+    NSNumber *lastID = [self lastIDWithEntityName:entityName];
+    NSNumber *nextID = [NSNumber numberWithInt:[lastID intValue]+1];
+    return nextID;
+}
+
 @end

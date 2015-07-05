@@ -25,5 +25,8 @@
 -(id)entityByIdentifier:(NSNumber *)identifier entityName:(NSString *)entityName;
 -(void)setFieldsfromSource:(id)source toDestination:(id)destination class:(Class)class;
 -(id)toEntityWithEntityName:(NSString *)entityName identifier:(NSNumber *)identifier;
+-(NSArray *)allEntitiesWithEntityName:(NSString *)entityName;
+-(NSNumber *)lastIDWithEntityName:(NSString *)entityName;
+-(NSNumber *)nextIDWithEntityName:(NSString *)entityName;
 
 @end

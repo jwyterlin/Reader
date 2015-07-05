@@ -26,5 +26,7 @@
 -(ArticleModel *)articleModelFromArticle:(Article *)article;
 -(NSArray *)allArticles;
 -(NSArray *)allArticlesModel;
+-(NSNumber *)lastID;
+-(NSNumber *)nextID;
 
 @end
