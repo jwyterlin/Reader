@@ -33,6 +33,7 @@
 @property(nonatomic,strong) NSArray *aux;
 @property(nonatomic) BOOL isChangedNoResults;
 @property(nonatomic) BOOL isDownloading;
+@property(nonatomic,strong) UIRefreshControl *refresh;
 
 @end
 
@@ -359,6 +360,19 @@
     
     [self hideSearchBarUntilScroll];
     
+    [self addRefreshInTableView];
+    
+}
+
+-(void)addRefreshInTableView {
+    
+    self.refresh = [UIRefreshControl new];
+    [self.refresh addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
+    
+    self.refresh.tintColor = [UIColor lightGrayColor];
+    
+    [self.tableView addSubview:self.refresh];
+    
 }
 
 -(void)hideSearchBarUntilScroll {
@@ -387,6 +401,7 @@
 -(void)stopLoading {
     [self.loading stopAnimating];
     self.loadingListLabel.hidden = YES;
+    [self.refresh endRefreshing];
 }
 
 -(void)showNoArticles {
