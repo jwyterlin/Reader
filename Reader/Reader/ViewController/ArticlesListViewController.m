@@ -185,7 +185,20 @@
     [self.filtered removeAllObjects];
     
     // Filter the array using NSPredicate
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.title contains[c] %@",searchText];
+    NSPredicate *predicate;
+    
+    if ( [scope isEqualToString:@"Title"] ) {
+        predicate = [NSPredicate predicateWithFormat:@"SELF.title contains[c] %@",searchText];
+    } else if ( [scope isEqualToString:@"Content"] ) {
+        predicate = [NSPredicate predicateWithFormat:@"SELF.content contains[c] %@",searchText];
+    } else if ( [scope isEqualToString:@"Date"] ) {
+        NSDate *searchDate = [DateHelper dateFromString:searchText];
+        predicate = [NSPredicate predicateWithFormat:@"SELF.date == %@", searchDate];
+    } else if ( [scope isEqualToString:@"Website"] ) {
+        predicate = [NSPredicate predicateWithFormat:@"SELF.website contains[c] %@",searchText];
+    } else if ( [scope isEqualToString:@"Author"] ) {
+        predicate = [NSPredicate predicateWithFormat:@"SELF.author contains[c] %@",searchText];
+    }
     
     NSMutableArray *listingsTemp = [NSMutableArray new];
 

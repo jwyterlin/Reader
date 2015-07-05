@@ -45,6 +45,7 @@
                                         <string>Content</string>
                                         <string>Date</string>
                                         <string>Website</string>
+                                        <string>Author</string>
                                     </scopeButtonTitles>
                                     <connections>
                                         <outlet property="delegate" destination="fuy-C0-GKQ" id="KR2-mb-6NG"/>

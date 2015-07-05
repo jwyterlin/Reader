@@ -15,6 +15,9 @@
 
 +(NSDate *)dateFromString:(NSString *)dateString {
     
+    if ( ! dateString )
+        return nil;
+    
     NSDateFormatter *dateFormatter = [NSDateFormatter new];
     NSTimeZone *tz = [NSTimeZone timeZoneWithName:kTimeZoneGreenwich];
     [dateFormatter setDateFormat:kDateFormatMonthDayYear];
@@ -22,6 +25,9 @@
     NSDate *date = [dateFormatter dateFromString:dateString];
     
     if ( date == nil ) {
+        
+        if ( dateString.length < 4 )
+            return nil;
         
         // Get first 4 caracteres of dateString
         NSString *year = [dateString substringWithRange:NSMakeRange(0, 4)];
@@ -34,7 +40,6 @@
             
         }
         
-        [dateFormatter setDateFormat:kDateFormatISO8601];
         date = [dateFormatter dateFromString:dateString];
         
     }
