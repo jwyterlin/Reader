@@ -10,6 +10,8 @@
 
 @implementation ArticleModel
 
+#pragma mark - Overriding methods
+
 -(ArticleModel *)setupWithJson:(NSDictionary *)j {
     
     if ( ! [Validator validateObject:j] )
@@ -25,6 +27,40 @@
     articleModel.date = [self receiveDate:j[@"date"]];
     
     return articleModel;
+    
+}
+
+#pragma mark - Public methods
+
+-(Article *)toArticle {
+    
+    Article *article = [self entityByIdentifier:self.identifier entityName:[Article description]];
+    
+    if ( article == nil ) {
+        
+        NSManagedObjectContext *context = [[Database sharedInstance] managedObjectContext];
+        article = [NSEntityDescription insertNewObjectForEntityForName:[Article description] inManagedObjectContext:context];
+        
+    }
+    
+    // Attributes
+    @autoreleasepool {
+        
+        unsigned int numberOfProperties = 0;
+        
+        objc_property_t *propertyArray = class_copyPropertyList([self class], &numberOfProperties);
+        
+        for ( NSUInteger i = 0; i < numberOfProperties; i++ ) {
+            objc_property_t property = propertyArray[i];
+            NSString *name = [[NSString alloc] initWithUTF8String:property_getName( property )];
+            [article setValue:[self valueForKey:name] forKey:name];
+        }
+        
+        free( propertyArray );
+        
+    }
+    
+    return article;
     
 }
 

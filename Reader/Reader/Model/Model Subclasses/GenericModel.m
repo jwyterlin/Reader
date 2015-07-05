@@ -60,4 +60,52 @@
     
 }
 
+-(NSArray *)allWithEntityName:(NSString *)entityName {
+    
+    NSManagedObjectContext *context = [[Database sharedInstance] managedObjectContext];
+    
+    NSEntityDescription *entity = [NSEntityDescription entityForName:entityName inManagedObjectContext:context];
+    
+    NSFetchRequest *fetchRequest = [NSFetchRequest new];
+    [fetchRequest setEntity:entity];
+    
+    NSError *error;
+    
+    NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
+    
+    return fetchedObjects;
+    
+}
+
+-(id)entityByIdentifier:(NSNumber *)identifier entityName:(NSString *)entityName {
+    
+    if ( ! identifier )
+        return nil;
+    
+    if ( [Validator isEmptyString:entityName] )
+        return nil;
+    
+    NSString *__identifier = [identifier stringValue];
+    
+    NSManagedObjectContext *context = [[Database sharedInstance] managedObjectContext];
+    
+    NSEntityDescription *entity = [NSEntityDescription entityForName:entityName inManagedObjectContext:context];
+    
+    NSFetchRequest *fetchRequest = [NSFetchRequest new];
+    [fetchRequest setEntity:entity];
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"identifier == %@", __identifier];
+    [fetchRequest setPredicate:predicate];
+    
+    NSError *error;
+    
+    NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
+    
+    if ( fetchedObjects.count )
+        return fetchedObjects[0];
+    else
+        return nil;
+    
+}
+
 @end

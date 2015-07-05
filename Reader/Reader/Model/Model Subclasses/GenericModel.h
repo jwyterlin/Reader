@@ -9,8 +9,11 @@
 #import <Foundation/Foundation.h>
 
 // Service Layer
+#import "Database.h"
 #import "DateHelper.h"
 #import "Validator.h"
+
+#import <objc/runtime.h>
 
 @interface GenericModel : NSObject
 
@@ -18,5 +21,7 @@
 -(id)setupWithJson:(NSDictionary *)json;
 -(NSString *)receiveString:(NSString *)string;
 -(NSDate *)receiveDate:(NSString *)string;
+-(NSArray *)allWithEntityName:(NSString *)entityName;
+-(id)entityByIdentifier:(NSNumber *)identifier entityName:(NSString *)entityName;
 
 @end

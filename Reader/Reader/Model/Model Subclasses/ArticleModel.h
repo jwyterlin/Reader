@@ -6,7 +6,9 @@
 //  Copyright © 2015 Jhonathan Wyterlin. All rights reserved.
 //
 
+// Model
 #import "GenericModel.h"
+#import "Article.h"
 
 @interface ArticleModel : GenericModel
 
@@ -19,5 +21,7 @@
 @property(nonatomic,strong) NSDate *date;
 @property(nonatomic,strong) NSData *image;
 @property(nonatomic,strong) NSNumber *wasRead;
+
+-(Article *)toArticle;
 
 @end
