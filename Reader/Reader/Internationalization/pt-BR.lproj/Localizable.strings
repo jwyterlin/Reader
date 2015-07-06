@@ -1,0 +1,23 @@
+/* 
+  Localizable.strings
+  Reader
+
+  Created by Jhonathan Wyterlin on 7/6/15.
+  Copyright © 2015 Jhonathan Wyterlin. All rights reserved.
+*/
+
+"TITLE" = "Título";
+"AUTHOR" = "Autor";
+"DATE" = "Data";
+"NO_IMAGE" = "Sem Imagem";
+"ARTICLE_DETAIL" = "Detalhes do Artigo";
+"CONTENT" = "Conteúdo";
+"WEBSITE" = "Website";
+"ARTICLES" = "Artigos";
+"CANCEL" = "Cancelar";
+"NO_RESULTS" = "Sem Resultados";
+"LOADING" = "Carregando";
+"NO_CONNECTION" = "Sem Conexão";
+"CONNECTION_FAILED_PLEASE_TRY_AGAIN" = "Falha na conexão. Por favor, tente novamente.";
+"NO_ARTICLE_FOUND" = "Nenhum artigo encontrado";
+"OK" = "OK";
