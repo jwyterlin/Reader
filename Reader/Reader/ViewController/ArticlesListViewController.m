@@ -15,6 +15,7 @@
 #import "ArticleDAO.h"
 
 // Service Layer
+#import "ArrayHelper.h"
 #import "Constants.h"
 #import "DeviceInfo.h"
 #import "UITableView+Helper.h"
@@ -49,6 +50,8 @@ typedef enum SortingOption {
 @property(nonatomic,strong) UIPickerView *pickerView;
 @property(nonatomic,strong) UIView *viewPickerView;
 
+@property(nonatomic,strong) IBOutlet UIBarButtonItem *refreshButton;
+
 @end
 
 @implementation ArticlesListViewController
@@ -59,12 +62,15 @@ typedef enum SortingOption {
     
     [super viewDidLoad];
     
-    self.sortingOptions = @[@"Title",@"Content",@"Date",@"Website",@"Author"];
+    self.sortingOptions = [[ArrayHelper new] sortingOptions];
+    [self.searchDisplayController.searchBar setScopeButtonTitles:self.sortingOptions];
     
     self.articleList = [[ArticleModel new] allArticlesModel];
     
     if ( self.articleList.count != 0 )
         [self insertSortButton];
+    else
+        self.refreshButton.title = NSLocalizedString(@"REFRESH", nil);
     
     [self populateArticlesList];
     
@@ -80,7 +86,7 @@ typedef enum SortingOption {
     
     [super viewWillAppear:animated];
     
-    self.navigationItem.title = @"Articles";
+    self.navigationItem.title = NSLocalizedString(@"ARTICLES", nil);
     
 }
 
@@ -223,15 +229,15 @@ typedef enum SortingOption {
     
     NSString *option = self.sortingOptions[row];
     
-    if ( [option isEqualToString:@"Title"] )
+    if ( [option isEqualToString:NSLocalizedString(@"TITLE", nil)] )
         self.sortingOptionSelected = SortingOptionTitle;
-    else if ( [option isEqualToString:@"Content"] )
+    else if ( [option isEqualToString:NSLocalizedString(@"CONTENT", nil)] )
         self.sortingOptionSelected = SortingOptionContent;
-    else if ( [option isEqualToString:@"Date"] )
+    else if ( [option isEqualToString:NSLocalizedString(@"DATE", nil)] )
         self.sortingOptionSelected = SortingOptionDate;
-    else if ( [option isEqualToString:@"Website"] )
+    else if ( [option isEqualToString:NSLocalizedString(@"WEBSITE", nil)] )
         self.sortingOptionSelected = SortingOptionWebsite;
-    else if ( [option isEqualToString:@"Author"] )
+    else if ( [option isEqualToString:NSLocalizedString(@"AUTHOR", nil)] )
         self.sortingOptionSelected = SortingOptionAuthor;
 
 }
@@ -246,13 +252,13 @@ typedef enum SortingOption {
         
         if ([subview isKindOfClass:[UIButton class]]) {
             
-            [(UIButton *)subview setTitle:@"Cancel" forState:UIControlStateNormal];
+            [(UIButton *)subview setTitle:NSLocalizedString(@"CANCEL", nil) forState:UIControlStateNormal];
             
         } else if ( [subview isKindOfClass:[UIView class]] ) {
             
             for (UIView *otherSubview in subview.subviews )
                 if ( [otherSubview isKindOfClass:[UIButton class]] )
-                    [(UIButton *)otherSubview setTitle:@"Cancel" forState:UIControlStateNormal];
+                    [(UIButton *)otherSubview setTitle:NSLocalizedString(@"CANCEL", nil) forState:UIControlStateNormal];
             
         }
         
@@ -304,16 +310,16 @@ typedef enum SortingOption {
     // Filter the array using NSPredicate
     NSPredicate *predicate;
     
-    if ( [scope isEqualToString:@"Title"] ) {
+    if ( [scope isEqualToString:NSLocalizedString(@"TITLE", nil)] ) {
         predicate = [NSPredicate predicateWithFormat:@"SELF.title contains[c] %@",searchText];
-    } else if ( [scope isEqualToString:@"Content"] ) {
+    } else if ( [scope isEqualToString:NSLocalizedString(@"CONTENT", nil)] ) {
         predicate = [NSPredicate predicateWithFormat:@"SELF.content contains[c] %@",searchText];
-    } else if ( [scope isEqualToString:@"Date"] ) {
+    } else if ( [scope isEqualToString:NSLocalizedString(@"DATE", nil)] ) {
         NSDate *searchDate = [DateHelper dateFromString:searchText];
         predicate = [NSPredicate predicateWithFormat:@"SELF.date == %@", searchDate];
-    } else if ( [scope isEqualToString:@"Website"] ) {
+    } else if ( [scope isEqualToString:NSLocalizedString(@"WEBSITE", nil)] ) {
         predicate = [NSPredicate predicateWithFormat:@"SELF.website contains[c] %@",searchText];
-    } else if ( [scope isEqualToString:@"Author"] ) {
+    } else if ( [scope isEqualToString:NSLocalizedString(@"AUTHOR", nil)] ) {
         predicate = [NSPredicate predicateWithFormat:@"SELF.author contains[c] %@",searchText];
     }
     
@@ -373,9 +379,9 @@ typedef enum SortingOption {
                 
                 UILabel *targetLabel = (UILabel *)subview;
                 
-                if ( [targetLabel.text isEqualToString:@"No Results"] ) {
+                if ( [targetLabel.text isEqualToString:NSLocalizedString(@"NO_RESULTS", nil)] ) {
                     
-                    [targetLabel setText:@"No Results"];
+                    [targetLabel setText:NSLocalizedString(@"NO_RESULTS", nil)];
                     self.isChangedNoResults = YES;
                     [timer invalidate];
                     
@@ -393,7 +399,7 @@ typedef enum SortingOption {
     
     [self startLoading];
     
-    self.loadingListLabel.text = @"Loading...";
+    self.loadingListLabel.text = [NSString stringWithFormat:@"%@...",NSLocalizedString(@"LOADING", nil)];
     
     [[ArticleDAO new] articleListWithSuccess:^(NSArray *articleList) {
         
@@ -405,6 +411,8 @@ typedef enum SortingOption {
             if ( articleList.count != 0 ) {
                 
                 self.navigationItem.rightBarButtonItem = nil;
+                
+                [self insertSortButton];
                 
                 self.articleList = [articleList mutableCopy];
                 [self prepareForFilter];
@@ -421,12 +429,13 @@ typedef enum SortingOption {
         [self stopLoading];
         
         if ( hasNoConnection ) {
-            [self showConnectionError:@"No Connection."];
+            [self showConnectionError:NSLocalizedString(@"NO_CONNECTION", nil)];
             return;
         }
         
         if ( error ) {
-            [self showConnectionError:@"Connection failed. Please, try again."];
+            NSString *errorMessage = NSLocalizedString(@"CONNECTION_FAILED_PLEASE_TRY_AGAIN", nil);
+            [self showConnectionError:errorMessage];
             return;
         }
         
@@ -498,7 +507,7 @@ typedef enum SortingOption {
     self.tableView.hidden = YES;
     
     self.loadingListLabel.hidden = NO;
-    self.loadingListLabel.text = @"No article found";
+    self.loadingListLabel.text = NSLocalizedString(@"NO_ARTICLE_FOUND", nil);
     
 }
 
@@ -603,7 +612,7 @@ typedef enum SortingOption {
 
 -(void)insertSortButton {
     
-    UIBarButtonItem *sortButton = [[UIBarButtonItem alloc] initWithTitle:@"Sort"
+    UIBarButtonItem *sortButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"SORT", nil)
                                                                    style:UIBarButtonItemStyleDone
                                                                   target:self
                                                                   action:@selector(showSortPicker:)];
@@ -648,15 +657,15 @@ typedef enum SortingOption {
         toolBar.backgroundColor = [UIColor colorWithRed:75.0/256.0 green:137.0/256.0 blue:208.0/256.0 alpha:1.0];
         
         UIBarButtonItem *fixedSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
-        fixedSpace.width = self.view.frame.size.width - 110;
+        fixedSpace.width = self.view.frame.size.width - 130;
         
-        UIBarButtonItem *okButton = [[UIBarButtonItem alloc] initWithTitle:@"Ok"
+        UIBarButtonItem *okButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"OK", nil)
                                                                      style:UIBarButtonItemStylePlain
                                                                     target:self
                                                                     action:@selector(closePicker:)];
         okButton.tintColor = [UIColor colorWithRed:0.0/256.0 green:122.0/256.0 blue:255.0/256.0 alpha:1.0];
         
-        UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithTitle:@"Cancel"
+        UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"CANCEL", nil)
                                                                          style:UIBarButtonItemStylePlain
                                                                         target:self
                                                                         action:@selector(onlyDismissPicker:)];
