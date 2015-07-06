@@ -63,10 +63,8 @@ typedef enum SortingOption {
     
     self.articleList = [[ArticleModel new] allArticlesModel];
     
-    if ( self.articleList.count != 0 ) {
-        UIBarButtonItem *sortButton = [[UIBarButtonItem alloc] initWithTitle:@"Sort" style:UIBarButtonItemStyleDone target:self action:@selector(showSortPicker:)];
-        self.navigationItem.rightBarButtonItem = sortButton;
-    }
+    if ( self.articleList.count != 0 )
+        [self insertSortButton];
     
     [self populateArticlesList];
     
@@ -600,6 +598,16 @@ typedef enum SortingOption {
     NSArray *sortedArray = [self.articleList sortedArrayUsingDescriptors:@[sort]];
     
     self.articleList = sortedArray;
+    
+}
+
+-(void)insertSortButton {
+    
+    UIBarButtonItem *sortButton = [[UIBarButtonItem alloc] initWithTitle:@"Sort"
+                                                                   style:UIBarButtonItemStyleDone
+                                                                  target:self
+                                                                  action:@selector(showSortPicker:)];
+    self.navigationItem.rightBarButtonItem = sortButton;
     
 }
 
