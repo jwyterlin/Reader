@@ -657,7 +657,7 @@ typedef enum SortingOption {
         toolBar.backgroundColor = [UIColor colorWithRed:75.0/256.0 green:137.0/256.0 blue:208.0/256.0 alpha:1.0];
         
         UIBarButtonItem *fixedSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
-        fixedSpace.width = self.view.frame.size.width - 110;
+        fixedSpace.width = self.view.frame.size.width - 130;
         
         UIBarButtonItem *okButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"OK", nil)
                                                                      style:UIBarButtonItemStylePlain
