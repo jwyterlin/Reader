@@ -22,7 +22,7 @@
 // ViewController
 #import "ArticleDetailViewController.h"
 
-@interface ArticlesListViewController()<UITableViewDataSource,UITableViewDelegate,UISearchBarDelegate,UISearchDisplayDelegate>
+@interface ArticlesListViewController()<UITableViewDataSource,UITableViewDelegate,UISearchBarDelegate,UISearchDisplayDelegate,UIPickerViewDataSource,UIPickerViewDelegate>
 
 @property(nonatomic,strong) IBOutlet UITableView *tableView;
 @property(nonatomic,strong) IBOutlet UIActivityIndicatorView *loading;
@@ -34,6 +34,20 @@
 @property(nonatomic) BOOL isChangedNoResults;
 @property(nonatomic) BOOL isDownloading;
 @property(nonatomic,strong) UIRefreshControl *refresh;
+@property(nonatomic,strong) NSArray *sortingOptions;
+
+typedef enum SortingOption {
+    SortingOptionTitle,
+    SortingOptionContent,
+    SortingOptionDate,
+    SortingOptionWebsite,
+    SortingOptionAuthor
+} SortingOption;
+
+@property(nonatomic) SortingOption sortingOptionSelected;
+
+@property(nonatomic,strong) UIPickerView *pickerView;
+@property(nonatomic,strong) UIView *viewPickerView;
 
 @end
 
@@ -45,10 +59,14 @@
     
     [super viewDidLoad];
     
+    self.sortingOptions = @[@"Title",@"Content",@"Date",@"Website",@"Author"];
+    
     self.articleList = [[ArticleModel new] allArticlesModel];
     
-    if ( self.articleList.count != 0 )
-        self.navigationItem.rightBarButtonItem = nil;
+    if ( self.articleList.count != 0 ) {
+        UIBarButtonItem *sortButton = [[UIBarButtonItem alloc] initWithTitle:@"Sort" style:UIBarButtonItemStyleDone target:self action:@selector(showSortPicker:)];
+        self.navigationItem.rightBarButtonItem = sortButton;
+    }
     
     [self populateArticlesList];
     
@@ -117,6 +135,27 @@
     
 }
 
+-(IBAction)showSortPicker:(id)sender {
+    [self showPickerWithAnimation:YES];
+}
+
+-(IBAction)onlyDismissPicker:(id)sender {
+    [self showPickerWithAnimation:NO];
+}
+
+-(IBAction)closePicker:(id)sender {
+    
+    // Reorder List
+    [self reorderList];
+    
+    // Update data
+    [self.tableView reloadData];
+    
+    // Dismiss pickerView
+    [self showPickerWithAnimation:NO];
+    
+}
+
 #pragma mark - UITableViewDataSource methods
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -155,6 +194,47 @@
     viewController.article = article;
     
     [self.navigationController pushViewController:viewController animated:YES];
+
+}
+
+#pragma mark - UIPickerViewDataSource methods
+
+// returns the number of 'columns' to display.
+-(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
+    return 1;
+}
+
+// returns the # of rows in each component..
+-(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
+    return self.sortingOptions.count;
+}
+
+#pragma mark - UIPickerViewDelegate methods
+
+-(NSString *)pickerView:(UIPickerView *)pickerView
+            titleForRow:(NSInteger)row
+           forComponent:(NSInteger)component {
+    
+    NSString *title = self.sortingOptions[row];
+    
+    return title;
+    
+}
+
+-(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
+    
+    NSString *option = self.sortingOptions[row];
+    
+    if ( [option isEqualToString:@"Title"] )
+        self.sortingOptionSelected = SortingOptionTitle;
+    else if ( [option isEqualToString:@"Content"] )
+        self.sortingOptionSelected = SortingOptionContent;
+    else if ( [option isEqualToString:@"Date"] )
+        self.sortingOptionSelected = SortingOptionDate;
+    else if ( [option isEqualToString:@"Website"] )
+        self.sortingOptionSelected = SortingOptionWebsite;
+    else if ( [option isEqualToString:@"Author"] )
+        self.sortingOptionSelected = SortingOptionAuthor;
 
 }
 
@@ -239,11 +319,11 @@
         predicate = [NSPredicate predicateWithFormat:@"SELF.author contains[c] %@",searchText];
     }
     
-    NSMutableArray *listingsTemp = [NSMutableArray new];
+    NSMutableArray *listTemp = [NSMutableArray new];
 
-    listingsTemp = [[self.aux filteredArrayUsingPredicate:predicate] copy];
+    listTemp = [[self.aux filteredArrayUsingPredicate:predicate] copy];
     
-    self.filtered = [listingsTemp mutableCopy];
+    self.filtered = [listTemp mutableCopy];
     
 }
 
@@ -432,6 +512,155 @@
     
     self.loadingListLabel.hidden = NO;
     self.loadingListLabel.text = msg;
+    
+}
+
+-(void)showPicker:(UIPickerView *)pickerView viewOfPickerView:(UIView *)viewOfPickerView show:(BOOL)show {
+    
+    if ( show ) {
+        
+        if ( ! [viewOfPickerView isDescendantOfView:self.view] )
+            [self.view addSubview:viewOfPickerView];
+        
+        viewOfPickerView.hidden = NO;
+        
+        int y = [UIScreen mainScreen].bounds.size.height - viewOfPickerView.frame.size.height;
+        
+        [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionLayoutSubviews animations:^{
+            
+            // Adjusts frame of viewPickerView
+            CGRect frame = viewOfPickerView.frame;
+            frame.origin.y = y;
+            viewOfPickerView.frame = frame;
+            
+            // Set pickerView to row at textfield indicate
+            int row = 0;
+            
+            // Init pickerView on row of current value of textfield
+            [pickerView selectRow:row inComponent:0 animated:NO];
+            
+            [self.view bringSubviewToFront:viewOfPickerView];
+            
+        } completion:^(BOOL finished) {
+            
+            
+        }];
+        
+    } else {
+        
+        [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionLayoutSubviews animations:^{
+            
+            CGRect frame = viewOfPickerView.frame;
+            frame.origin.y = [UIScreen mainScreen].bounds.size.height;
+            viewOfPickerView.frame = frame;
+            
+        } completion:^(BOOL finished) {
+            
+            viewOfPickerView.hidden = YES;
+            
+        }];
+        
+    }
+    
+}
+
+-(void)showPickerWithAnimation:(BOOL)show {
+    
+    [self showPicker:self.pickerView viewOfPickerView:self.viewPickerView show:show];
+    
+}
+
+-(void)reorderList {
+    
+    NSString *key;
+    
+    if ( self.sortingOptionSelected == SortingOptionTitle )
+        key = @"title";
+    else if ( self.sortingOptionSelected == SortingOptionContent )
+        key = @"content";
+    else if ( self.sortingOptionSelected == SortingOptionDate )
+        key = @"date";
+    else if ( self.sortingOptionSelected == SortingOptionWebsite )
+        key = @"website";
+    else if ( self.sortingOptionSelected == SortingOptionAuthor )
+        key = @"author";
+    
+    NSSortDescriptor *sort;
+    
+    if ( [key isEqualToString:@"date"] ) {
+        sort = [NSSortDescriptor sortDescriptorWithKey:key ascending:YES comparator:^NSComparisonResult(id obj1, id obj2) {
+            return [(NSDate *)obj1 compare:(NSDate *)obj2];
+        }];
+    } else {
+        sort = [NSSortDescriptor sortDescriptorWithKey:key ascending:YES comparator:^NSComparisonResult(id obj1, id obj2) {
+            return [(NSString *)obj1 compare:(NSString *)obj2 options:NSNumericSearch];
+        }];
+    }
+    
+    NSArray *sortedArray = [self.articleList sortedArrayUsingDescriptors:@[sort]];
+    
+    self.articleList = sortedArray;
+    
+}
+
+#pragma mark - Creating components
+
+-(UIPickerView *)pickerView {
+    
+    if ( ! _pickerView ) {
+        
+        _pickerView = [[UIPickerView alloc] initWithFrame:CGRectMake( 0,
+                                                                     44,
+                                                                     [UIScreen mainScreen].bounds.size.width,
+                                                                     162
+                                                                     )];
+        
+        _pickerView.delegate = self;
+        _pickerView.dataSource = self;
+        _pickerView.backgroundColor = [UIColor whiteColor];
+        
+    }
+    
+    return _pickerView;
+    
+}
+
+-(UIView *)viewPickerView {
+    
+    if ( ! _viewPickerView ) {
+        
+        _viewPickerView = [[UIView alloc] initWithFrame:CGRectMake( 0, self.view.frame.size.height, self.view.frame.size.width, 206 )];
+        _viewPickerView.backgroundColor = [UIColor darkGrayColor];
+        _viewPickerView.clipsToBounds = YES;
+        [_viewPickerView addSubview:self.pickerView];
+        
+        UIToolbar *toolBar = [[UIToolbar alloc] initWithFrame:CGRectMake( 0, 0, self.view.frame.size.width, 44 )];
+        toolBar.translucent = YES;
+        toolBar.barTintColor = [UIColor colorWithRed:240.0/256.0 green:240.0/256.0 blue:240.0/256.0 alpha:1.0];
+        toolBar.backgroundColor = [UIColor colorWithRed:75.0/256.0 green:137.0/256.0 blue:208.0/256.0 alpha:1.0];
+        
+        UIBarButtonItem *fixedSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+        fixedSpace.width = self.view.frame.size.width - 110;
+        
+        UIBarButtonItem *okButton = [[UIBarButtonItem alloc] initWithTitle:@"Ok"
+                                                                     style:UIBarButtonItemStylePlain
+                                                                    target:self
+                                                                    action:@selector(closePicker:)];
+        okButton.tintColor = [UIColor colorWithRed:0.0/256.0 green:122.0/256.0 blue:255.0/256.0 alpha:1.0];
+        
+        UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithTitle:@"Cancel"
+                                                                         style:UIBarButtonItemStylePlain
+                                                                        target:self
+                                                                        action:@selector(onlyDismissPicker:)];
+        cancelButton.tintColor = [UIColor colorWithRed:0.0/256.0 green:122.0/256.0 blue:255.0/256.0 alpha:1.0];
+        
+        [toolBar setItems:@[fixedSpace,cancelButton,okButton]];
+        
+        [_viewPickerView addSubview:toolBar];
+        
+    }
+    
+    return _viewPickerView;
     
 }
 
