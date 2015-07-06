@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5B46D9F91B4AC9AF00F20F01 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5B46D9FB1B4AC9AF00F20F01 /* Localizable.strings */; };
+		5B5AD3DD1B4AE66400ECD9DD /* ArrayHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B5AD3DC1B4AE66400ECD9DD /* ArrayHelper.m */; };
 		7BDABEA71B47693D0032E0A7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BDABEA61B47693D0032E0A7 /* main.m */; };
 		7BDABEB01B47693E0032E0A7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BDABEAE1B47693E0032E0A7 /* Main.storyboard */; };
 		7BDABEB21B47693E0032E0A7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BDABEB11B47693E0032E0A7 /* Images.xcassets */; };
@@ -65,7 +66,9 @@
 		5588F878A9628F1DD7669EDE /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		5B46D9FA1B4AC9AF00F20F01 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		5B46D9FC1B4AC9B400F20F01 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		5B46D9FD1B4AC9CA00F20F01 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		5B46D9FE1B4ACD7700F20F01 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		5B5AD3DB1B4AE66400ECD9DD /* ArrayHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ArrayHelper.h; path = "Service Layer/ArrayHelper.h"; sourceTree = "<group>"; };
+		5B5AD3DC1B4AE66400ECD9DD /* ArrayHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ArrayHelper.m; path = "Service Layer/ArrayHelper.m"; sourceTree = "<group>"; };
 		76A79A2963B3926AEC65BE4B /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		7BDABEA11B47693D0032E0A7 /* Reader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Reader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BDABEA51B47693D0032E0A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -383,6 +386,8 @@
 		7BDABF051B476ADF0032E0A7 /* Service Layer */ = {
 			isa = PBXGroup;
 			children = (
+				5B5AD3DB1B4AE66400ECD9DD /* ArrayHelper.h */,
+				5B5AD3DC1B4AE66400ECD9DD /* ArrayHelper.m */,
 				7BDABF061B476AF00032E0A7 /* CellHelper.h */,
 				7BDABF071B476AF00032E0A7 /* CellHelper.m */,
 				7BDABF081B476AF00032E0A7 /* Connection.h */,
@@ -592,6 +597,7 @@
 				7BDABF281B476AF00032E0A7 /* UITableView+Helper.m in Sources */,
 				7BDABF231B476AF00032E0A7 /* JWLabel.m in Sources */,
 				7BDABEE61B4769D50032E0A7 /* GenericCell.m in Sources */,
+				5B5AD3DD1B4AE66400ECD9DD /* ArrayHelper.m in Sources */,
 				7BDABF1F1B476AF00032E0A7 /* Connection.m in Sources */,
 				7BDABF251B476AF00032E0A7 /* NetAPIClient.m in Sources */,
 				7BDABF301B476B0E0032E0A7 /* ArticlesListViewController.m in Sources */,
@@ -623,7 +629,7 @@
 			children = (
 				5B46D9FA1B4AC9AF00F20F01 /* Base */,
 				5B46D9FC1B4AC9B400F20F01 /* en */,
-				5B46D9FD1B4AC9CA00F20F01 /* pt-BR */,
+				5B46D9FE1B4ACD7700F20F01 /* pt-BR */,
 			);
 			name = Localizable.strings;
 			path = Internationalization;

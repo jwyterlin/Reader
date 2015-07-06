@@ -55,7 +55,7 @@
     
     [super viewWillAppear:animated];
     
-    self.navigationItem.title = @"Article Detail";
+    self.navigationItem.title = NSLocalizedString(@"ARTICLE_DETAIL", nil);
     
     if ( self.navigationController ) {
         

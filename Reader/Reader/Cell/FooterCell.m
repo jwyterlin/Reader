@@ -54,11 +54,11 @@
     
     cell.site.text = article.website;
 
-    cell.author.text = [NSString stringWithFormat:@"Author: %@", article.author];
+    cell.author.text = [NSString stringWithFormat:@"%@: %@", NSLocalizedString(@"AUTHOR", nil), article.author];
     
     NSString *dateString = [DateHelper dateFormattedMonthDayYear:article.date];
     
-    cell.date.text = [NSString stringWithFormat:@"Date: %@", dateString];
+    cell.date.text = [NSString stringWithFormat:@"%@: %@", NSLocalizedString(@"DATE", nil), dateString];
     
     cell.siteWidth.constant = [DeviceInfo width]-16;
     cell.authorWidth.constant = [DeviceInfo width]-16;

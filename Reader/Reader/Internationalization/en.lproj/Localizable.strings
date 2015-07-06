@@ -17,7 +17,9 @@
 "CANCEL" = "Cancel";
 "NO_RESULTS" = "No Results";
 "LOADING" = "Loading";
-"NO_CONNECTION" = "No Connection";
+"NO_CONNECTION" = "No Connection.";
 "CONNECTION_FAILED_PLEASE_TRY_AGAIN" = "Connection failed. Please, try again.";
 "NO_ARTICLE_FOUND" = "No article found";
 "OK" = "OK";
+"SORT" = "Sort";
+"REFRESH" = "Refresh";

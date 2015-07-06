@@ -51,12 +51,12 @@
                 atIndexPath:(NSIndexPath *)indexPath
                     article:(ArticleModel *)article {
     
-    cell.title.text = [NSString stringWithFormat:@"Title: %@", article.title];
-    cell.author.text = [NSString stringWithFormat:@"Author: %@", article.author];
+    cell.title.text = [NSString stringWithFormat:@"%@: %@",NSLocalizedString(@"TITLE", nil), article.title];
+    cell.author.text = [NSString stringWithFormat:@"%@: %@", NSLocalizedString(@"AUTHOR", nil), article.author];
     
     NSString *dateString = [DateHelper dateFormattedMonthDayYear:article.date];
     
-    cell.date.text = [NSString stringWithFormat:@"Date: %@", dateString];
+    cell.date.text = [NSString stringWithFormat:@"%@: %@", NSLocalizedString(@"DATE", nil), dateString];
     
     // Check font to represent if this article was read or not
     [self checkWasReadInCell:cell wasRead:[article.wasRead boolValue]];
@@ -217,7 +217,7 @@
         
         _noPhoto = [[UILabel alloc] initWithFrame:CGRectMake( 0, y, self.image.frame.size.width, height )];
         _noPhoto.numberOfLines = 0;
-        _noPhoto.text = @"No Image";
+        _noPhoto.text = NSLocalizedString(@"NO_IMAGE", nil);
         _noPhoto.textAlignment = NSTextAlignmentCenter;
         _noPhoto.textColor = [UIColor colorWithRed:210.0/256.0 green:210.0/256.0 blue:210.0/256.0 alpha:1.0];
         
