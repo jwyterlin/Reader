@@ -43,6 +43,7 @@
 		7BDABF291B476AF00032E0A7 /* Validator.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BDABF1D1B476AF00032E0A7 /* Validator.m */; };
 		7BDABF2F1B476B0E0032E0A7 /* ArticleDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BDABF2C1B476B0E0032E0A7 /* ArticleDetailViewController.m */; };
 		7BDABF301B476B0E0032E0A7 /* ArticlesListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BDABF2E1B476B0E0032E0A7 /* ArticlesListViewController.m */; };
+		7BFE21A41B840E9B00220063 /* ArticleModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BFE21A31B840E9B00220063 /* ArticleModelTests.m */; };
 		7BFE6DDF1B49836900158389 /* Database.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BFE6DDE1B49836900158389 /* Database.m */; };
 		7BFE6DE21B49884400158389 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7BFE6DE01B49884400158389 /* Model.xcdatamodeld */; };
 		7BFE6DE51B4989B400158389 /* Article.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BFE6DE41B4989B400158389 /* Article.m */; };
@@ -129,6 +130,7 @@
 		7BDABF2C1B476B0E0032E0A7 /* ArticleDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ArticleDetailViewController.m; path = ViewController/ArticleDetailViewController.m; sourceTree = "<group>"; };
 		7BDABF2D1B476B0E0032E0A7 /* ArticlesListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ArticlesListViewController.h; path = ViewController/ArticlesListViewController.h; sourceTree = "<group>"; };
 		7BDABF2E1B476B0E0032E0A7 /* ArticlesListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ArticlesListViewController.m; path = ViewController/ArticlesListViewController.m; sourceTree = "<group>"; };
+		7BFE21A31B840E9B00220063 /* ArticleModelTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArticleModelTests.m; sourceTree = "<group>"; };
 		7BFE6DDD1B49836900158389 /* Database.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Database.h; path = "Service Layer/Database.h"; sourceTree = "<group>"; };
 		7BFE6DDE1B49836900158389 /* Database.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Database.m; path = "Service Layer/Database.m"; sourceTree = "<group>"; };
 		7BFE6DE11B49884400158389 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 			children = (
 				7BDABEC01B47693E0032E0A7 /* ReaderTests.m */,
 				7BDABEBE1B47693E0032E0A7 /* Supporting Files */,
+				7BFE21A31B840E9B00220063 /* ArticleModelTests.m */,
 			);
 			path = ReaderTests;
 			sourceTree = "<group>";
@@ -588,6 +591,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7BFE21A41B840E9B00220063 /* ArticleModelTests.m in Sources */,
 				7BDABEC11B47693E0032E0A7 /* ReaderTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
