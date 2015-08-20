@@ -42,4 +42,11 @@ extern NSString *const kNibArticleDetailViewController;
 // Notification Names
 extern NSString *const kNotificationNameCheckArticleAsRead;
 
+// Sorting Options
+extern NSString *const kSortingOptionTitle;
+extern NSString *const kSortingOptionContent;
+extern NSString *const kSortingOptionDate;
+extern NSString *const kSortingOptionWebsite;
+extern NSString *const kSortingOptionAuthor;
+
 @end

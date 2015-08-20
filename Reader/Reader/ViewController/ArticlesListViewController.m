@@ -59,7 +59,7 @@ typedef enum SortingOption {
     
     [super viewDidLoad];
     
-    self.sortingOptions = @[@"Title",@"Content",@"Date",@"Website",@"Author"];
+    self.sortingOptions = @[kSortingOptionTitle,kSortingOptionContent,kSortingOptionDate,kSortingOptionWebsite,kSortingOptionAuthor];
     
     self.articleList = [[ArticleModel new] allArticlesModel];
     
@@ -223,15 +223,15 @@ typedef enum SortingOption {
     
     NSString *option = self.sortingOptions[row];
     
-    if ( [option isEqualToString:@"Title"] )
+    if ( [option isEqualToString:kSortingOptionTitle] )
         self.sortingOptionSelected = SortingOptionTitle;
-    else if ( [option isEqualToString:@"Content"] )
+    else if ( [option isEqualToString:kSortingOptionContent] )
         self.sortingOptionSelected = SortingOptionContent;
-    else if ( [option isEqualToString:@"Date"] )
+    else if ( [option isEqualToString:kSortingOptionDate] )
         self.sortingOptionSelected = SortingOptionDate;
-    else if ( [option isEqualToString:@"Website"] )
+    else if ( [option isEqualToString:kSortingOptionWebsite] )
         self.sortingOptionSelected = SortingOptionWebsite;
-    else if ( [option isEqualToString:@"Author"] )
+    else if ( [option isEqualToString:kSortingOptionAuthor] )
         self.sortingOptionSelected = SortingOptionAuthor;
 
 }
@@ -304,16 +304,16 @@ typedef enum SortingOption {
     // Filter the array using NSPredicate
     NSPredicate *predicate;
     
-    if ( [scope isEqualToString:@"Title"] ) {
+    if ( [scope isEqualToString:kSortingOptionTitle] ) {
         predicate = [NSPredicate predicateWithFormat:@"SELF.title contains[c] %@",searchText];
-    } else if ( [scope isEqualToString:@"Content"] ) {
+    } else if ( [scope isEqualToString:kSortingOptionContent] ) {
         predicate = [NSPredicate predicateWithFormat:@"SELF.content contains[c] %@",searchText];
-    } else if ( [scope isEqualToString:@"Date"] ) {
+    } else if ( [scope isEqualToString:kSortingOptionDate] ) {
         NSDate *searchDate = [DateHelper dateFromString:searchText];
         predicate = [NSPredicate predicateWithFormat:@"SELF.date == %@", searchDate];
-    } else if ( [scope isEqualToString:@"Website"] ) {
+    } else if ( [scope isEqualToString:kSortingOptionWebsite] ) {
         predicate = [NSPredicate predicateWithFormat:@"SELF.website contains[c] %@",searchText];
-    } else if ( [scope isEqualToString:@"Author"] ) {
+    } else if ( [scope isEqualToString:kSortingOptionAuthor] ) {
         predicate = [NSPredicate predicateWithFormat:@"SELF.author contains[c] %@",searchText];
     }
     

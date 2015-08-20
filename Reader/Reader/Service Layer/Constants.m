@@ -42,4 +42,11 @@ NSString *const kNibArticleDetailViewController = @"ArticleDetailViewController"
 // Notification Names
 NSString *const kNotificationNameCheckArticleAsRead = @"CheckArticleAsRead";
 
+// Sorting Options
+NSString *const kSortingOptionTitle = @"Title";
+NSString *const kSortingOptionContent = @"Content";
+NSString *const kSortingOptionDate = @"Date";
+NSString *const kSortingOptionWebsite = @"Website";
+NSString *const kSortingOptionAuthor = @"Author";
+
 @end
