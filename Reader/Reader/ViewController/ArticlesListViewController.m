@@ -260,10 +260,6 @@ typedef enum SortingOption {
     
 }
 
--(void)searchDisplayControllerDidEndSearch:(UISearchDisplayController *)controller {
-
-}
-
 -(void)searchDisplayController:(UISearchDisplayController *)controller didLoadSearchResultsTableView:(UITableView *)tableView {
     if ( ! self.isChangedNoResults )
         if ( [self.filtered count] == 0 )
